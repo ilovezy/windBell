@@ -1,0 +1,70 @@
+{
+    "pages" : [
+        //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+        {
+            "path" : "pages/index/index",
+            "style" : {}
+        },
+        // "navigationBarTitleText" : "uni-app"
+        {
+            "path" : "pages/userCenter/userCenter",
+            "style" : {}
+        },
+        {
+            "path" : "pages/bookShelf/bookShelf",
+            "style" : {}
+        },
+        {
+            "path" : "pages/bookDetail/bookDetail",
+            "style" : {}
+        },
+        {
+            "path" : "pages/searchBook/searchBook",
+            "style" : {}
+        },
+        {
+            "path" : "pages/login/login",
+            "style" : {}
+        },
+        {
+            "path" : "pages/register/register",
+            "style" : {}
+        },
+        {
+            "path" : "pages/aboutUs/aboutUs",
+            "style" : {}
+        }
+    ],
+    "globalStyle" : {
+        "navigationBarTextStyle" : "black",
+        "navigationBarTitleText" : "风铃阅读",
+        "navigationBarBackgroundColor" : "#F8F8F8",
+        "backgroundColor" : "#F8F8F8"
+    },
+    "tabBar" : {
+        "color" : "#7A7E83",
+        "selectedColor" : "#007AFF",
+        "borderStyle" : "black",
+        "backgroundColor" : "#ffffff",
+        "list" : [
+            {
+                "pagePath" : "pages/bookShelf/bookShelf",
+                "iconPath" : "static/tabbarIcon/component.png",
+                "selectedIconPath" : "static/tabbarIcon/componentHL.png",
+                "text" : "书架"
+            },
+            {
+                "pagePath" : "pages/index/index",
+                "iconPath" : "static/tabbarIcon/component.png",
+                "selectedIconPath" : "static/tabbarIcon/componentHL.png",
+                "text" : "书城"
+            },
+            {
+                "pagePath" : "pages/userCenter/userCenter",
+                "iconPath" : "static/tabbarIcon/api.png",
+                "selectedIconPath" : "static/tabbarIcon/apiHL.png",
+                "text" : "我的"
+            }
+        ]
+    }
+}
