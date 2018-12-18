@@ -74,7 +74,18 @@
                     "xxhdpi" : "unpackage/res/icons/144x144.png",
                     "xxxhdpi" : "unpackage/res/icons/192x192.png"
                 }
+            },
+            "splashscreen" : {
+                "android" : {
+                    "hdpi" : "C:/Users/PC-C/Desktop/cover.png",
+                    "xhdpi" : "C:/Users/PC-C/Desktop/cover.png",
+                    "xxhdpi" : "C:/Users/PC-C/Desktop/cover.png"
+                }
             }
+        },
+        "splashscreen" : {
+            "waiting" : true,
+            "delay" : 3000
         }
     },
     /* SDK配置 */

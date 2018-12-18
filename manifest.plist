@@ -19,7 +19,7 @@
                    <key>needs-shine</key>
                    <true/>
                    <key>url</key>
-                   <string>http://www.baidu.com/applogo.png</string>
+                   <string>https://read-public-test.oss-cn-hangzhou.aliyuncs.com/applogo.png</string>
                </dict>
 	       <dict>
                    <key>kind</key>
@@ -27,20 +27,20 @@
                    <key>needs-shine</key>
                    <true/>
                    <key>url</key>
-                   <string>http://www.baidu.com/applogo.png</string>
+                   <string>https://read-public-test.oss-cn-hangzhou.aliyuncs.com/applogo.png</string>
                </dict>
            </array><key>metadata</key>
            <dict>
                <key>bundle-identifier</key>
-               <string>com.zone.zoneIPA</string>
+               <string>io.dcloud.windBellApp</string>
                <key>bundle-version</key>
                <string>1.0.0</string>
                <key>kind</key>
                <string>software</string>
                <key>subtitle</key>
-               <string>_zone的免安装应用</string>
+               <string>风铃subTitle</string>
                <key>title</key>
-               <string>_zone的免安装应用</string>
+               <string>风铃title</string>
            </dict>
        </dict>
    </array>
