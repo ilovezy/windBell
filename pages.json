@@ -2,22 +2,33 @@
     "pages" : [
         //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
         {
-        	"path" : "pages/bookShelf/bookShelf",
-        	"style" : {}
-        },
-        {
             "path" : "pages/index/index",
-            "style" : {}
+            "style" : {
+                "navigationBarTitleText" : "首页",
+                "app-plus" : {
+                    "titleNView" : {
+                        "buttons" : [
+                            {
+                                "text" : "\ue130",
+                                "color" : "#666",
+                                "fontSrc" : "/static/uniIcon/uni.ttf",
+                                "fontSize" : "32px",
+                                "float" : "left"
+                            }
+                        ]
+                    },
+                    "bounce" : "none"
+                }
+            }
         },
-        // "navigationBarTitleText" : "uni-app"
         {
             "path" : "pages/userCenter/userCenter",
             "style" : {}
         },
-//         {
-//             "path" : "pages/bookShelf/bookShelf",
-//             "style" : {}
-//         },
+        {
+            "path" : "pages/bookShelf/bookShelf",
+            "style" : {}
+        },
         {
             "path" : "pages/bookDetail/bookDetail",
             "style" : {}
@@ -36,6 +47,42 @@
         },
         {
             "path" : "pages/aboutUs/aboutUs",
+            "style" : {
+                "navigationBarTitleText" : "关于我们"
+            }
+        },
+        {
+            "path" : "pages/webView/webView",
+            "style" : {}
+        },
+        {
+            "path" : "pages/tabbarSet/tabbarSet",
+            "style" : {
+                "navigationBarTitleText" : "抽屉侧滑菜单drawer抽屉侧滑菜单drawer抽屉侧滑菜单drawer",
+                "app-plus" : {
+                    "titleNView" : {
+                        "autoBackButton" : "false",
+                        "buttons" : [
+                            {
+                                "text" : "\ue101",
+                                "fontSrc" : "/static/uniIcon/uni.ttf",
+                                "fontSize" : "32px",
+                                "float" : "left"
+                            }
+                        ],
+                        // "titleOverflow": "clip",
+                        "type" : "transparent",
+                        "titleSize" : "14px",
+                        "backgroundColor" : "#428bca",
+                        "titleColor" : "#fff",
+                        "homeButton" : "true"
+                    },
+                    "bounce" : "none"
+                }
+            }
+        },
+        {
+            "path" : "pages/user/mySelf/mySelf",
             "style" : {}
         }
     ],

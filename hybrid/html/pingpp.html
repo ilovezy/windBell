@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>pingpp测试</title>
+		<style type="text/css">
+			.btn {
+				display: block;
+				margin: 20px auto;
+				padding: 5px;
+				background-color: #007aff;
+				border: 0;
+				color: #ffffff;
+				height: 40px;
+				width: 200px;
+			}
+
+			.btn-red {
+				background-color: #dd524d;
+			}
+
+			.btn-yellow {
+				background-color: #f0ad4e;
+			}
+
+			.desc {
+				padding: 10px;
+				color: #999999;
+			}
+		</style>
+	</head>
+	<body>
+		<p class="desc">web-view 组件加载本地 html 示例，仅在 App 环境下生效。点击下列按钮，跳转至其它页面。</p>
+		<div class="btn-list">
+			<button class="btn" type="button" data-action="navigateTo">navigateTo</button>
+			<button class="btn" type="button" data-action="redirectTo">redirectTo</button>
+			<button class="btn" type="button" data-action="navigateBack">navigateBack</button>
+			<button class="btn" type="button" data-action="reLaunch">reLaunch</button>
+			<button class="btn btn-red" type="button" data-action="switchTab">switchTab</button>
+		</div>
+        
+        <div class="btn-list">
+            <button class="btn btn-red" type="button" id="test">test</button>
+        </div>
+		<!-- uni 的 SDK -->
+		<script type="text/javascript" src="https://js.cdn.aliyun.dcloud.net.cn/dev/uni-app/uni.webview.0.1.52.js"></script>
+		<script type="text/javascript" src="vconsole/vconsole.min.js"></script>
+		<script type="text/javascript" src="pingpp/pingpp_ui.js"></script>
+		<script type="text/javascript">
+			var vConsole = new VConsole();
+			console.log(pingpp, pingpp_ui)
+
+			// pingpp_ui.createPayment({name: 'jack'}, function(res, err) {
+			// 	 // object 需是 Charge/Order/Recharge 的 JSON 字符串
+			// 	 // 可按需使用 alert 方法弹出 log
+			//     console.log(result);
+			//     console.log(err.msg);
+			//     console.log(err.extra);
+			//     if (result == "success") {
+			//     	// 只有微信公众号 (wx_pub)、QQ 公众号 (qpay_pub)支付成功的结果会在这里返回，其他的支付结果都会跳转到 extra 中对应的 URL
+			//     } else if (result == "fail") {
+			//         // Ping++ 对象不正确或者微信公众号 / QQ公众号支付失败时会在此处返回
+			//     } else if (result == "cancel") {
+			//         // 微信公众号支付取消支付
+			//     }
+			// });
+			document.addEventListener('UniAppJSBridgeReady', function() {
+				function showPayment() {
+					pingpp_ui.init({
+						// 页面上需要展示的渠道。数组，数组顺序即页面展示出的渠道的顺序
+						channel: ['alipay_wap', 'wx_pub', 'wx_wap', 'upacp_wap', 'yeepay_wap', 'jdpay_wap', 'bfb_wap']
+					}, function(channel) {
+						// 用户选择的支付渠道
+						console.log(channel);
+					});
+				}
+
+				//                 // 在支付页调用支付：
+				//                 //在成功页调用
+				//                 pingpp_ui.success(function(res) {
+				//                     if (!res.status) {
+				//                         alert(res.msg);
+				//                     } 
+				//                 }, function() {
+				//                     uni.navigateBack({
+				//                         delta: 1
+				//                     });
+				//                     // alert('test')
+				//                 });
+
+				document.querySelector('#test').addEventListener('click', showPayment)
+                
+				document.querySelector('.btn-list').addEventListener('click', function(evt) {
+					var target = evt.target;
+					if (target.tagName === 'BUTTON') {
+						var action = target.getAttribute('data-action');
+						switch (action) {
+							case 'switchTab':
+								uni.switchTab({
+									url: '/pages/bookShelf/bookShelf'
+								});
+								break;
+							case 'navigateBack':
+								uni.navigateBack({
+									delta: 1
+								});
+								break;
+							default:
+								uni[action]({
+									url: '/pages/component/aboutUs/aboutUs'
+								});
+								break;
+						}
+					}
+				});
+			});
+		</script>
+	</body>
+</html>

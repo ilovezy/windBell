@@ -102,6 +102,7 @@ export default {
 </script>
 
 <style lang="less">
+@import '../../style/variable.less';
 .book-shelf-page {
     display: flex;
     flex-flow: column;

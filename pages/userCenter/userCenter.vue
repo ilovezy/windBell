@@ -1,6 +1,7 @@
 <template>
-	<view>
+	<view class="test-less">
 		这是用户信息页面
+        
 	</view>
 </template>
 
@@ -23,6 +24,10 @@
 	}
 </script>
 
-<style>
+<style lang="less">
+@import '../../style/variable.less';
 
+.test-less {
+    color: @theme-color;
+}
 </style>
