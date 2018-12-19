@@ -77,9 +77,26 @@
             },
             "splashscreen" : {
                 "android" : {
-                    "hdpi" : "C:/Users/PC-C/Desktop/cover.png",
-                    "xhdpi" : "C:/Users/PC-C/Desktop/cover.png",
-                    "xxhdpi" : "C:/Users/PC-C/Desktop/cover.png"
+                    "hdpi" : "C:/Users/PC-C/Desktop/fhcUni/windBell/static/cover/cover.png",
+                    "xhdpi" : "C:/Users/PC-C/Desktop/fhcUni/windBell/static/cover/cover.png",
+                    "xxhdpi" : "C:/Users/PC-C/Desktop/fhcUni/windBell/static/cover/cover.png"
+                },
+                "ios" : {
+                    "iphone" : {
+                        "retina35" : "C:/Users/PC-C/Desktop/fhcUni/windBell/static/cover/cover.png",
+                        "retina40" : "C:/Users/PC-C/Desktop/fhcUni/windBell/static/cover/cover.png",
+                        "retina40l" : "C:/Users/PC-C/Desktop/fhcUni/windBell/static/cover/cover.png",
+                        "retina47" : "C:/Users/PC-C/Desktop/fhcUni/windBell/static/cover/cover.png",
+                        "retina47l" : "C:/Users/PC-C/Desktop/fhcUni/windBell/static/cover/cover.png",
+                        "retina55" : "C:/Users/PC-C/Desktop/fhcUni/windBell/static/cover/cover.png",
+                        "retina55l" : "C:/Users/PC-C/Desktop/fhcUni/windBell/static/cover/cover.png",
+                        "iphonex" : "C:/Users/PC-C/Desktop/fhcUni/windBell/static/cover/cover.png",
+                        "iphonexl" : "C:/Users/PC-C/Desktop/fhcUni/windBell/static/cover/cover.png",
+                        "portrait-896h@2x" : "C:/Users/PC-C/Desktop/fhcUni/windBell/static/cover/cover.png",
+                        "landscape-896h@2x" : "C:/Users/PC-C/Desktop/fhcUni/windBell/static/cover/cover.png",
+                        "protrait-896h@3x" : "C:/Users/PC-C/Desktop/fhcUni/windBell/static/cover/cover.png",
+                        "landscape-896h@3x" : "C:/Users/PC-C/Desktop/fhcUni/windBell/static/cover/cover.png"
+                    }
                 }
             }
         },

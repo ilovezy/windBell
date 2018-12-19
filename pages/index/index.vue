@@ -13,7 +13,12 @@
         <button type="primary" class="btn" @click="goTabbarSet">go TabbarSet</button>
         <br>
         <button type="primary" class="btn" @click="goWebview">go webview</button>
+        <br>
      <button type="primary" class="btn" @click="goMySelf">go mySelf</button>
+     <br>
+     <button type="primary" class="btn" @click="goBaidu">go baidu</button>
+
+     
         <qrcode val="itms-services://?action=download-manifest&url=https://read-public-test.oss-cn-hangzhou.aliyuncs.com/manifest.plist" size="120" ref="qrcode"></qrcode>
         <view class="test-less">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam non eum sapiente ducimus eaque ullam quidem laudantium reiciendis. Natus illum est assumenda? Perspiciatis corporis doloremque itaque corrupti distinctio sapiente ab?
@@ -54,6 +59,15 @@ export default {
     },
     onLoad() {
         this.sayHello();
+    },
+    onShow: function () {
+      // plus.nativeUI.showWaiting( "等待中..." );
+      // plus.nativeUI.alert('App Show');
+    	console.log('App Show')
+    },
+    onHide: function () {  
+      // plus.nativeUI.alert('App Hide');
+    	console.log('App Hide')
     },
     onNavigationBarButtonTap(e) {
         this.rightDrawerVisible = !this.rightDrawerVisible;
@@ -112,6 +126,12 @@ export default {
             uni.navigateTo({
                 url: '/pages/webView/webView'
             });
+        },
+        goBaidu(){
+          uni.navigateTo({
+          		url: '/pages/webView/baidu/baidu'
+          });
+          
         }
     }
 };

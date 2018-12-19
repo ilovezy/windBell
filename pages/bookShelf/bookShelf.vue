@@ -2,7 +2,7 @@
 	<view class="book-shelf-page">
 		<view class="list-wrap">
             <view class="list-item" v-for="(item,index) in itemList" :key="index">
-            	<image :src="item.cover" class="cover" mode="scaleToFill"></image>
+            	<image :src="item.cover" class="cover" mode="scaleToFill" @click="previewImg(item)"></image>
                 <div class="basic-info">
                 <view class="title">
                 	{{item.title}}
@@ -88,14 +88,32 @@ export default {
             duration: 500
         };
     },
-    
-    methods:{
-        pushItem(){
+
+    methods: {
+        previewImg(item) {
+            // plus.nativeUI.alert(JSON.stringify(item));
+            uni.previewImage({
+                urls: [item.cover, '../../static/lolis/ee.jpg', '../../static/lolis/dd.jpg']
+            });
+            // 从相册选择6张图
+            //             uni.chooseImage({
+            //                 count: 6,
+            //                 sizeType: ['original', 'compressed'],
+            //                 sourceType: ['album'],
+            //                 success: function(res) {
+            //                     // 预览图片
+            //                     uni.previewImage({
+            //                         urls: res.tempFilePaths
+            //                     });
+            //                 }
+            //             });
+        },
+        pushItem() {
             this.itemList.push({
                 title: '呵撒',
                 cover: '../../static/lolis/ee.jpg',
                 writer: '33放大法dfafda发发呆'
-            })
+            });
         }
     }
 };
@@ -145,7 +163,7 @@ export default {
                 }
             }
         }
-        
+
         .list-item-plus {
             height: 120px;
             line-height: 120px;
