@@ -1,27 +1,107 @@
 <template>
-	<view class="test-less">
-    <uni-load-more :loadingType="0" color="red" :contentText="contentText"></uni-load-more>
-    <uni-load-more :loadingType="1" color="green" :contentText="contentText"></uni-load-more>
-    <uni-load-more :loadingType="2" color="blue" :contentText="contentText"></uni-load-more>
-    
-    <text class="iconfont icon-laba" style="font-size:50px;color:red"></text>
-    <text class="iconfont icon-wode" style="font-size:50px;color:red"></text>
+	<view class="userCenter-page">
+        <view class="top-container">
+            <view class="left-wrap">
+                <view class="avatar-wrap">
+                    <image class="avatar-img" :src="avatar" v-if="avatar" mode="widthFix"></image>
+                    <view class="iconfont icon-tubiao-" v-else></view>
+                </view>
+            </view>
+            
+            <view class="right-wrap">
+                <view class="username">{{name || ''}}</view>
+                <view class="money">账户余额：<view class="money-unit">￥{{money || 0}}</view></view>
+            </view>       
+        </view>
+        
+        <view class="list-item-wrap">
+            <view class="list-item">
+                <view class="left-part">
+                    <view class="iconfont icon-chongzhi"></view>
+                    <view class="list-text">
+                        充值
+                    </view>
+                </view>
+                <view class="right-part">
+                    <view class="iconfont icon-arrow-right_s"></view>
+                </view>
+            </view>
+            
+            <view class="list-item">
+            	<view class="left-part">
+            		<view class="iconfont icon-29"></view>
+            		<view class="list-text">
+            			提现
+            		</view>
+            	</view>
+            	<view class="right-part">
+            		<view class="iconfont icon-arrow-right_s"></view>
+            	</view>
+            </view>
+            
+            <view class="list-item">
+            	<view class="left-part">
+            		<view class="iconfont icon-yaoqingjiangli"></view>
+            		<view class="list-text">
+            			邀请
+            		</view>
+            	</view>
+            	<view class="right-part">
+            		<view class="iconfont icon-arrow-right_s"></view>
+            	</view>
+            </view>
+        </view>
+        
+        <view class="list-item-wrap">
+            <view class="list-item">
+            	<view class="left-part">
+            		<view class="iconfont icon-bangzhuzhongxin"></view>
+            		<view class="list-text">
+            			帮助中心
+            		</view>
+            	</view>
+            	<view class="right-part">
+            		<view class="iconfont icon-arrow-right_s"></view>
+            	</view>
+            </view>
+            
+            <view class="list-item">
+            	<view class="left-part">
+            		<view class="iconfont icon-yijianfankui"></view>
+            		<view class="list-text">意见反馈</view>
+            	</view>
+            	<view class="right-part">
+            		<view class="iconfont icon-arrow-right_s"></view>
+            	</view>
+            </view>
+            
+            <view class="list-item">
+            	<view class="left-part">
+            		<view class="iconfont icon-guanyuwomen"></view>
+            		<view class="list-text">
+            			关于我们
+            		</view>
+            	</view>
+            	<view class="right-part">
+            		<view class="iconfont icon-arrow-right_s"></view>
+            	</view>
+            </view>
+        </view>
 	</view>
 </template>
 
 <script>
 import uniLoadMore from '@/components/uni-load-more.vue';
+import uniIcon from '@/components/uni-icon.vue';
 
 export default {
-    components: { uniLoadMore },
+    components: { uniLoadMore, uniIcon },
     data() {
         return {
-            text: '',
-            contentText: {
-                contentdown: '上拉显示更多fuck1',
-                contentrefresh: '正在加载...fuck2',
-                contentnomore: '没有更多数据了fuck3'
-            }
+            avatar: '../../static/app-logo.png',
+            // avatar: '',
+            name: '放假哦爱的',
+            money: 1000
         };
     },
 
@@ -62,9 +142,5 @@ export default {
 </script>
 
 <style lang="less">
-@import '../../style/variable.less';
-
-.test-less {
-    color: @theme-color;
-}
+@import './userCenter.less';
 </style>

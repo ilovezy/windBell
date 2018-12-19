@@ -32,7 +32,7 @@
       </view>
             
     </uni-drawer>
-   <view class='iconfont icon-message-o'></view>
+   <view class='iconfont icon-wo'></view>
 
 	</view>
 </template>
