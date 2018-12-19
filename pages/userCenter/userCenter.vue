@@ -15,7 +15,7 @@
         </view>
         
         <view class="list-item-wrap">
-            <view class="list-item">
+            <view class="list-item ripple">
                 <view class="left-part">
                     <view class="iconfont icon-chongzhi"></view>
                     <view class="list-text">
@@ -27,7 +27,7 @@
                 </view>
             </view>
             
-            <view class="list-item">
+            <view class="list-item ripple">
             	<view class="left-part">
             		<view class="iconfont icon-29"></view>
             		<view class="list-text">
@@ -39,7 +39,7 @@
             	</view>
             </view>
             
-            <view class="list-item">
+            <view class="list-item ripple">
             	<view class="left-part">
             		<view class="iconfont icon-yaoqingjiangli"></view>
             		<view class="list-text">
@@ -53,7 +53,7 @@
         </view>
         
         <view class="list-item-wrap">
-            <view class="list-item">
+            <view class="list-item ripple">
             	<view class="left-part">
             		<view class="iconfont icon-bangzhuzhongxin"></view>
             		<view class="list-text">
@@ -65,7 +65,7 @@
             	</view>
             </view>
             
-            <view class="list-item">
+            <view class="list-item ripple">
             	<view class="left-part">
             		<view class="iconfont icon-yijianfankui"></view>
             		<view class="list-text">意见反馈</view>
@@ -75,7 +75,7 @@
             	</view>
             </view>
             
-            <view class="list-item">
+            <view class="list-item ripple" @click="updateMoney">
             	<view class="left-part">
             		<view class="iconfont icon-guanyuwomen"></view>
             		<view class="list-text">
@@ -87,19 +87,36 @@
             	</view>
             </view>
         </view>
+        
+        <view class="list-item-wrap">
+        		<view class="list-item">
+        			<view class="left-part">
+        				<view class="iconfont icon-tianqitubiao_qingtianzhou"></view>
+        				<view class="list-text">
+        					夜间模式
+        				</view>
+        			</view>
+        			<view class="right-part">
+                   <view class="body-view">
+                      <switch @change="toogleBright" style="transform: translateX(10%) scale(0.6);" />
+                  </view>
+        			</view>
+        		</view>
+        </view>
 	</view>
 </template>
 
 <script>
 import uniLoadMore from '@/components/uni-load-more.vue';
 import uniIcon from '@/components/uni-icon.vue';
+import _ from '../../common/underscore.js';
 
 export default {
     components: { uniLoadMore, uniIcon },
     data() {
         return {
-            avatar: '../../static/app-logo.png',
-            // avatar: '',
+            // avatar: '../../static/app-logo.png',
+            avatar: '',
             name: '放假哦爱的',
             money: 1000
         };
@@ -124,6 +141,22 @@ export default {
     },
 
     methods: {
+        toogleBright: function(e) {
+            uni.setScreenBrightness({
+                value: e.detail.value ? 0.5 : 1,
+                success: function() {
+                    console.log('success');
+                }
+            });
+        },
+
+        updateMoney: _.debounce(
+            function() {
+                this.money++;
+            },
+            1000,
+            true
+        ),
         testImg() {
             uni.chooseImage({
                 count: 6,

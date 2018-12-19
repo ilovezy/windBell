@@ -5,27 +5,35 @@
                 <image :src="recentItem.cover" class="cover" mode="scaleToFill"></image>
             </view>
             <view class="right-wrap">
-                <div class="title">{{recentItem.title}}</div>
-                <div class="writer" style="">
-                    {{recentItem.writer}} 继续阅读 >
-                </div>
+                <view class="title">{{recentItem.title}}</view>
+                <view class="writer" style="">
+                    {{recentItem.writer}}
+                </view>
+                <view class="btn-keep-read ripple"> 继续阅读</view>
             </view>
         </view>
-		<view class="list-wrap">
-            <view class="list-item" v-for="(item,index) in itemList" :key="index">
-            	<image :src="item.cover" class="cover" mode="scaleToFill" @click="previewImg(item)"></image>
-                <div class="basic-info">
-                <view class="title">
-                	{{item.title}}
-                </view>
-                <view class="writer">
-                	{{item.writer}}
-                </view>
-                </div>
+		<view>
+            <view v-if="showLoading">
+                <cc-loading></cc-loading>
             </view>
-            
-            <view class="list-item list-item-plus" @click="pushItem">
-            	+
+            <view v-else class="list-wrap">
+                <view class="list-item ripple" @click="setCurrentBook(item)" v-for="(item,index) in itemList" :key="index">
+                    <image :src="item.cover" class="cover" mode="scaleToFill" @click="previewImg(item)"></image>
+                    <view class="basic-info">
+                    <view class="title">
+                        {{item.title}}
+                    </view>
+                    <view class="writer">
+                        {{item.writer}}
+                    </view>
+                    </view>
+                </view>
+                
+                <view class="list-item list-item-plus ripple" @click="pushItem">
+                    +
+                </view>
+                <view class="list-item-placeholder" v-if="itemList.length % 3 == 1">
+                </view>
             </view>
         </view>
 	</view>
@@ -35,32 +43,43 @@
 export default {
     data() {
         return {
+            showLoading: true,
             title: 'Hello 风铃阅读',
             recentItem: {
                 title: 'hello',
                 cover: '../../static/lolis/a.png',
                 writer: 'test'
             },
-            itemList: [
+            itemList: [],
+            indicatorDots: true,
+            autoplay: true,
+            interval: 5000,
+            duration: 500
+        };
+    },
+
+    mounted() {
+        this.getData()
+    },
+
+    onPullDownRefresh() {
+        this.getData();
+    },
+
+    methods: {
+        setCurrentBook(item){
+          this.recentItem = item  
+        },
+        getData() {
+            this.showLoading = true
+            setTimeout(() => {
+            	this.showLoading = false;
+            }, 2000);
+            this.itemList = [
                 {
                     title: 'hello',
                     cover: '../../static/lolis/a.png',
                     writer: 'test'
-                },
-                {
-                    title: 'hell2o',
-                    cover: '../../static/lolis/b.png',
-                    writer: 'vfv'
-                },
-                {
-                    title: '呵呵dd发发顺丰的撒',
-                    cover: '../../static/lolis/d.png',
-                    writer: '33放大法'
-                },
-                {
-                    title: '呵呵dd发发顺丰的撒',
-                    cover: '../../static/lolis/dd.jpg',
-                    writer: ''
                 },
                 {
                     title: '呵撒',
@@ -97,15 +116,9 @@ export default {
                     cover: '../../static/lolis/ee.jpg',
                     writer: '33放大法dfafda发发呆'
                 }
-            ],
-            indicatorDots: true,
-            autoplay: true,
-            interval: 5000,
-            duration: 500
-        };
-    },
-
-    methods: {
+            ];
+            uni.stopPullDownRefresh();
+        },
         previewImg(item) {
             // plus.nativeUI.alert(JSON.stringify(item));
             uni.previewImage({
@@ -125,11 +138,14 @@ export default {
             //             });
         },
         pushItem() {
-            this.itemList.push({
-                title: '呵撒',
-                cover: '../../static/lolis/ee.jpg',
-                writer: '33放大法dfafda发发呆'
-            });
+            const self = this;
+            setTimeout(() => {
+                self.itemList.push({
+                    title: '呵撒',
+                    cover: '../../static/lolis/ee.jpg',
+                    writer: '33放大法dfafda发发呆'
+                });
+            }, 300);
         }
     }
 };
@@ -144,25 +160,27 @@ export default {
     justify-content: center; /*水平*/
 
     .top-container {
-        height: 200px;
-        background: @theme-color;
+        height: 240px;
+        background: @theme-color-dark;
         color: #fff;
         display: flex;
         align-items: center;
-        padding: 0 30px;
+        padding: 0 15px;
+        padding-top: 40px;
+        box-sizing: border-box;
         .left-wrap {
             box-shadow: 0 0 5px #ccc;
-            border-radius: 4px;
+            // border-radius: 4px;
             overflow: hidden;
-          
+
             .cover {
-         width: 100px;
-         height: 120px;
+                width: 100px;
+                height: 120px;
             }
         }
 
         .right-wrap {
-            color: #fff;
+            // color: #fff;
             padding-left: 20px;
             .title {
                 font-size: 18px;
@@ -171,6 +189,14 @@ export default {
 
             .writer {
                 font-size: 14px;
+                padding-bottom: 10px;
+            }
+            
+            .btn-keep-read {
+                display: inline-block;
+                font-size: 14px;
+                border: 1px solid #fff;
+                padding: 5px 15px;
             }
         }
     }
@@ -192,7 +218,7 @@ export default {
             margin-bottom: 15px;
             // overflow: hidden;
             box-shadow: 0 0 5px #ccc;
-            border-radius: 4px;
+            // border-radius: 4px;
             overflow: hidden;
 
             .cover {
@@ -203,24 +229,30 @@ export default {
                 padding: 5px;
                 padding-top: 0;
                 .title {
-                    font-size: 14px;
+                    font-size: 12px;
                     color: #666;
                     padding-bottom: 5upx;
                 }
 
                 .writer {
-                    font-size: 12px;
+                    font-size: 10px;
                     color: #999;
                 }
             }
         }
 
         .list-item-plus {
-            height: 120px;
-            line-height: 120px;
+            height: 100px;
+            line-height: 100px;
             text-align: center;
             font-size: 40px;
             color: #999;
+        }
+
+        .list-item-placeholder {
+            width: 30%;
+            max-width: 120px;
+            margin-bottom: 15px;
         }
     }
 }

@@ -1,14 +1,43 @@
 {
 	"pages": [
 		//pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-     {
-     	"path": "pages/userCenter/userCenter",
-     	"style": {}
-     },
+{
+			"path": "pages/bookShelf/bookShelf",
+			"style": {
+                "enablePullDownRefresh": "true",
+				"navigationBarTitleText": "书架",
+                "app-plus": {
+                	"titleNView": {
+                		"type": "transparent"
+                		// "titleSize": "14px",
+                		// "backgroundColor": "#fff",
+                		// "titleColor": "#404040"
+                		// "homeButton": "true"
+                	},
+                	// "bounce": "none",
+                    "pullToRefresh": {
+                    	"support": true,
+                    	"color": "#607D8B",
+                    	"style": "circle",
+                        "offset": "240px",
+                    	"contentdown": {
+                    		"caption": "下拉可刷新自定义文本"
+                    	},
+                    	"contentover": {
+                    		"caption": "释放可刷新自定义文本"
+                    	},
+                    	"contentrefresh": {
+                    		"caption": "正在刷新自定义文本"
+                    	}
+                    }
+                }
+			}
+		},
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "首页",
+                "enablePullDownRefresh": "true",
+				"navigationBarTitleText": "书城",
 				"app-plus": {
 					"titleNView": {
 						"buttons": [{
@@ -16,7 +45,7 @@
 							"color": "#666",
 							"fontSrc": "/static/iconfont/iconfont.ttf",
 							"fontSize": "22px"
-                            // "fontWeight":"bold"
+							// "fontWeight":"bold"
 							// "float": "left"
 						}]
 					},
@@ -24,14 +53,15 @@
 				}
 			}
 		},
-        {
-        	"path": "pages/bookShelf/bookShelf",
-        	"style": {
-        	
-        	}
-        },
 		
-	
+		{
+			"path": "pages/userCenter/userCenter",
+			"style": {
+				"navigationBarTitleText": "我的"
+				// "titleNView": false
+			}
+		},
+
 		{
 			"path": "pages/bookDetail/bookDetail",
 			"style": {}
@@ -89,7 +119,7 @@
 		{
 			"path": "pages/webView/baidu/baidu",
 			"style": {
-                "navigationStyle":"custom"
+				"navigationStyle": "custom"
 				// "titleNView": false
 			}
 		}
@@ -97,14 +127,14 @@
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "风铃阅读",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"navigationBarBackgroundColor": "#f6f6f6",
+		"backgroundColor": "#f8f8f8"
 	},
 	"tabBar": {
 		"color": "#bdbdbd",
-		"selectedColor": "#388E3C",
+		"selectedColor": "#428bca",
 		"borderStyle": "black",
-		"backgroundColor": "#F8F8F8",
+		"backgroundColor": "#f8f8f8",
 		"list": [{
 				"pagePath": "pages/bookShelf/bookShelf",
 				"iconPath": "static/tabIcon/bookShelf.png",

@@ -17,13 +17,9 @@
      <button type="primary" class="btn" @click="goMySelf">go mySelf</button>
      <br>
      <button type="primary" class="btn" @click="goBaidu">go baidu</button>
-
-     
-        <qrcode val="itms-services://?action=download-manifest&url=https://read-public-test.oss-cn-hangzhou.aliyuncs.com/manifest.plist" size="120" ref="qrcode"></qrcode>
         <view class="test-less">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam non eum sapiente ducimus eaque ullam quidem laudantium reiciendis. Natus illum est assumenda? Perspiciatis corporis doloremque itaque corrupti distinctio sapiente ab?
         </view>
-        
         
 		<uni-drawer :visible="rightDrawerVisible" mode="left" @close="closeRightDrawer">
       <view style="height: 100%; overflow-y: scroll;">
