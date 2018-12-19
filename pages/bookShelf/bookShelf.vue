@@ -1,5 +1,16 @@
 <template>
 	<view class="book-shelf-page">
+        <view class="top-container">
+            <view class="left-wrap">
+                <image :src="recentItem.cover" class="cover" mode="scaleToFill"></image>
+            </view>
+            <view class="right-wrap">
+                <div class="title">{{recentItem.title}}</div>
+                <div class="writer" style="">
+                    {{recentItem.writer}} 继续阅读 >
+                </div>
+            </view>
+        </view>
 		<view class="list-wrap">
             <view class="list-item" v-for="(item,index) in itemList" :key="index">
             	<image :src="item.cover" class="cover" mode="scaleToFill" @click="previewImg(item)"></image>
@@ -25,6 +36,11 @@ export default {
     data() {
         return {
             title: 'Hello 风铃阅读',
+            recentItem: {
+                title: 'hello',
+                cover: '../../static/lolis/a.png',
+                writer: 'test'
+            },
             itemList: [
                 {
                     title: 'hello',
@@ -126,7 +142,38 @@ export default {
     flex-flow: column;
     display: flex;
     justify-content: center; /*水平*/
-    padding: 15px;
+
+    .top-container {
+        height: 200px;
+        background: @theme-color;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        padding: 0 30px;
+        .left-wrap {
+            box-shadow: 0 0 5px #ccc;
+            border-radius: 4px;
+            overflow: hidden;
+          
+            .cover {
+         width: 100px;
+         height: 120px;
+            }
+        }
+
+        .right-wrap {
+            color: #fff;
+            padding-left: 20px;
+            .title {
+                font-size: 18px;
+                padding-bottom: 10px;
+            }
+
+            .writer {
+                font-size: 14px;
+            }
+        }
+    }
 
     .list-wrap {
         width: 100%;
@@ -135,8 +182,12 @@ export default {
         justify-content: space-between;
         // align-items: center; /*垂直*/
         flex-wrap: wrap; /*超出宽度强制换行*/
+        padding: 15px;
+        box-sizing: border-box;
+
         .list-item {
             width: 30%;
+            max-width: 120px;
             // border: 1px solid #eaeaea;
             margin-bottom: 15px;
             // overflow: hidden;

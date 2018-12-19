@@ -1,6 +1,12 @@
 {
 	"pages": [
 		//pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+        {
+        	"path": "pages/bookShelf/bookShelf",
+        	"style": {
+        	
+        	}
+        },
 		{
 			"path": "pages/index/index",
 			"style": {
@@ -23,10 +29,7 @@
 			"path": "pages/userCenter/userCenter",
 			"style": {}
 		},
-		{
-			"path": "pages/bookShelf/bookShelf",
-			"style": {}
-		},
+	
 		{
 			"path": "pages/bookDetail/bookDetail",
 			"style": {}
@@ -99,7 +102,7 @@
 		"color": "#7A7E83",
 		"selectedColor": "#007AFF",
 		"borderStyle": "black",
-		"backgroundColor": "#ffffff",
+		"backgroundColor": "#F8F8F8",
 		"list": [{
 				"pagePath": "pages/bookShelf/bookShelf",
 				"iconPath": "static/tabbarIcon/component.png",
