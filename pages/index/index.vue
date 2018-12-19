@@ -30,8 +30,9 @@
       <view>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro dolorem libero nam. Voluptatum distinctio quos odio accusantium illo nostrum error asperiores architecto impedit expedita nam consequatur necessitatibus quasi voluptatibus tempore.</view>
       <view>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro dolorem libero nam. Voluptatum distinctio quos odio accusantium illo nostrum error asperiores architecto impedit expedita nam consequatur necessitatibus quasi voluptatibus tempore.</view><view>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro dolorem libero nam. Voluptatum distinctio quos odio accusantium illo nostrum error asperiores architecto impedit expedita nam consequatur necessitatibus quasi voluptatibus tempore.</view><view>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro dolorem libero nam. Voluptatum distinctio quos odio accusantium illo nostrum error asperiores architecto impedit expedita nam consequatur necessitatibus quasi voluptatibus tempore.</view><view>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro dolorem libero nam. Voluptatum distinctio quos odio accusantium illo nostrum error asperiores architecto impedit expedita nam consequatur necessitatibus quasi voluptatibus tempore.</view><view>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro dolorem libero nam. Voluptatum distinctio quos odio accusantium illo nostrum error asperiores architecto impedit expedita nam consequatur necessitatibus quasi voluptatibus tempore.</view><view>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro dolorem libero nam. Voluptatum distinctio quos odio accusantium illo nostrum error asperiores architecto impedit expedita nam consequatur necessitatibus quasi voluptatibus tempore.</view><view>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro dolorem libero nam. Voluptatum distinctio quos odio accusantium illo nostrum error asperiores architecto impedit expedita nam consequatur necessitatibus quasi voluptatibus tempore.</view><view>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro dolorem libero nam. Voluptatum distinctio quos odio accusantium illo nostrum error asperiores architecto impedit expedita nam consequatur necessitatibus quasi voluptatibus tempore.</view><view>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro dolorem libero nam. Voluptatum distinctio quos odio accusantium illo nostrum error asperiores architecto impedit expedita nam consequatur necessitatibus quasi voluptatibus tempore.</view><view>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro dolorem libero nam. Voluptatum distinctio quos odio accusantium illo nostrum error asperiores architecto impedit expedita nam consequatur necessitatibus quasi voluptatibus tempore.</view>
       </view>
+            
     </uni-drawer>
-   
+   <view class='iconfont icon-message-o'></view>
 
 	</view>
 </template>
@@ -70,7 +71,10 @@ export default {
     	console.log('App Hide')
     },
     onNavigationBarButtonTap(e) {
-        this.rightDrawerVisible = !this.rightDrawerVisible;
+        // this.rightDrawerVisible = !this.rightDrawerVisible;
+        uni.navigateTo({
+        		url: '/pages/searchBook/searchBook'
+        });
     },
     onBackPress() {
         // 返回按钮监听
