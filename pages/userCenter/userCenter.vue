@@ -117,7 +117,20 @@
                   </view>
         			</view>
         		</view>
-            
+            <view class="list-item">
+            	<view class="left-part">
+            		<view class="iconfont icon-tianqitubiao_qingtianzhou"></view>
+            		<view class="list-text">
+            			夜间模式2
+            		</view>
+            	</view>
+            	<view class="right-part">
+            			<view class="body-view">
+                    <button @click="toogleBright2">test</button>
+            					<!-- <switch @change="toogleBright" style="transform: translateX(10%) scale(0.6);" /> -->
+            			</view>
+            	</view>
+            </view>
             <view class="list-item" @click="makePhoneCall">
             	<view class="left-part">
             		<view class="iconfont icon-tianqitubiao_qingtianzhou"></view>
@@ -197,14 +210,66 @@ export default {
             });
         },
         toogleBright: function(e) {
-            uni.setScreenBrightness({
-                value: e.detail.value ? 0.5 : 1,
-                success: function() {
-                    console.log('success');
-                }
-            });
+            try {
+//                 uni.setScreenBrightness({
+//                     value: 0.5,
+//                     success: function() {
+//                         console.log('success');
+//                     }
+//                 });
+// 
+                uni.getScreenBrightness({
+                    success: function(res) {
+                      uni.showModal({
+                      		title: '提示',
+                      		content: '屏幕亮度值：' + res.value,
+                      		success: function(res) {
+                      				if (res.confirm) {
+                      						console.log('用户点击确定');
+                      				} else if (res.cancel) {
+                      						console.log('用户点击取消');
+                      				}
+                      		}
+                      });
+                        console.log('屏幕亮度值：' + res.value);
+                    }
+                });
+            } catch (e) {
+                uni.showModal({
+                    title: '提示',
+                    content: JSON.stringify(e),
+                    success: function(res) {
+                        if (res.confirm) {
+                            console.log('用户点击确定');
+                        } else if (res.cancel) {
+                            console.log('用户点击取消');
+                        }
+                    }
+                });
+            }
         },
-
+        toogleBright2: function(e) {
+            try {
+                uni.setScreenBrightness({
+                    value: 0.5,
+                    success: function() {
+                        console.log('success');
+                    }
+                });
+            } catch (e) {
+                uni.showModal({
+                    title: '提示',
+                    content: JSON.stringify(e),
+                    success: function(res) {
+                        if (res.confirm) {
+                            console.log('用户点击确定');
+                        } else if (res.cancel) {
+                            console.log('用户点击取消');
+                        }
+                    }
+                });
+            }
+        },
         updateMoney: _.debounce(
             function() {
                 this.money++;

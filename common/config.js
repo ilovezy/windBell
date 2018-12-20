@@ -11,6 +11,7 @@ const CONFIG = {
   // memberType: memberType,
   // token: token,
   
+  version: 'V 0.0.1',
   showOpenSlider: true, // 是否开启启动页轮播
 }
 

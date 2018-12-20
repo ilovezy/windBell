@@ -1,8 +1,8 @@
 {
     "name" : "风铃阅读",
-    "appid" : "__UNI__EDDA888",
+    "appid" : "__UNI__B0D9F9B",
     "description" : "风铃阅读是一款精美的阅读app，可以分享，邀请好友获利",
-    "versionName" : "1.0.0",
+    "versionName" : "0.0.1",
     "versionCode" : 1,
     "transformPx" : false,
     "app-plus" : {
@@ -12,8 +12,16 @@
             "Share" : {},
             "Push" : {},
             "Payment" : {},
+            "Contacts" : {},
             "Maps" : {},
-            "Contacts" : {}
+            "Messaging" : {},
+            "OAuth" : {},
+            "Fingerprint" : {},
+            "Speech" : {},
+            "LivePusher" : {},
+            "VideoPlayer" : {},
+            "iBeacon" : {},
+            "Bluetooth" : {}
         },
         /* 模块配置 */
         "distribute" : {
@@ -23,20 +31,33 @@
                 "permissions" : [
                     "<uses-feature android:name=\"android.hardware.camera\"/>",
                     "<uses-feature android:name=\"android.hardware.camera.autofocus\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.BLUETOOTH\"/>",
+                    "<uses-permission android:name=\"android.permission.BLUETOOTH_ADMIN\"/>",
                     "<uses-permission android:name=\"android.permission.CALL_PHONE\"/>",
                     "<uses-permission android:name=\"android.permission.CAMERA\"/>",
                     "<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
                     "<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>",
                     "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>",
+                    "<uses-permission android:name=\"android.permission.INTERNET\"/>",
                     "<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>",
                     "<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>",
                     "<uses-permission android:name=\"android.permission.READ_LOGS\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_SMS\"/>",
                     "<uses-permission android:name=\"android.permission.RECEIVE_BOOT_COMPLETED\"/>",
                     "<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>",
+                    "<uses-permission android:name=\"android.permission.SEND_SMS\"/>",
+                    "<uses-permission android:name=\"android.permission.USE_FINGERPRINT\"/>",
                     "<uses-permission android:name=\"android.permission.VIBRATE\"/>",
                     "<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>",
                     "<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>",
-                    "<uses-permission android:name=\"android.permission.RECEIVE_USER_PRESENT\"/>"
+                    "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_SMS\"/>",
+                    "<uses-permission android:name=\"android.permission.RECEIVE_USER_PRESENT\"/>",
+                    "<uses-permission android:name=\"android.permission.BLUETOOTH\"/>",
+                    "<uses-permission android:name=\"android.permission.BLUETOOTH_ADMIN\"/>"
                 ]
             },
             "ios" : {},
@@ -44,7 +65,10 @@
             "sdkConfigs" : {
                 "maps" : {},
                 "payment" : {},
-                "statics" : {}
+                "statics" : {},
+                "speech" : {
+                    "ifly" : {}
+                }
             },
             "icons" : {
                 "ios" : {
@@ -117,7 +141,10 @@
         /* 小程序特有相关 */
         "appid" : "",
         "setting" : {
-            "urlCheck" : true
+            "urlCheck" : true,
+            "es6" : true,
+            "minified" : true,
+            "postcss" : true
         }
     }
 }
