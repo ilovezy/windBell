@@ -1,6 +1,15 @@
 {
 	"pages": [
 		//pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+    {
+    			"path": "pages/searchBook/searchBook",
+    			"style": {
+    				"navigationBarTitleText": "搜索",
+    				"usingComponents": {
+    					"van-search": "/wxcomponents/vant/search/index"
+    				}
+    			}
+    		},
 		{
 			"path": "pages/initPage/initPage",
 			"style": {}
@@ -88,16 +97,7 @@
 				"navigationBarTitleText": "书籍详情"
 			}
 		},
-		{
-			"path": "pages/searchBook/searchBook",
-			"style": {
-				"navigationBarTitleText": "搜索",
-				"usingComponents": {
-					"van-search": "/wxcomponents/vant/search/index"
-				}
-			}
-		},
-
+		
 		{
 			"path": "pages/register/register",
 			"style": {
