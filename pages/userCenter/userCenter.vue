@@ -122,7 +122,20 @@
             	<view class="left-part">
             		<view class="iconfont icon-tianqitubiao_qingtianzhou"></view>
             		<view class="list-text">
-            			联系我们
+            			uni dialog
+            		</view>
+            	</view>
+            	<view class="right-part">
+            			<!-- <view class="body-view">
+            					<switch @change="toogleBright" style="transform: translateX(10%) scale(0.6);" />
+            			</view> -->
+            	</view>
+            </view>
+            <view class="list-item" @click="openVanDialog">
+            	<view class="left-part">
+            		<view class="iconfont icon-tianqitubiao_qingtianzhou"></view>
+            		<view class="list-text">
+            			van dialog
             		</view>
             	</view>
             	<view class="right-part">
@@ -132,6 +145,9 @@
             	</view>
             </view>
         </view>
+        
+        <van-dialog id="van-dialog" :show="showVanDialog" @close="closeVanDialog" title="test" message="hello wrodfjofasj 及大家搜覅到沙发解放东鞍山佛"/>
+
 	</view>
 </template>
 
@@ -140,6 +156,7 @@ import uniLoadMore from '@/components/uni-load-more.vue';
 import uniIcon from '@/components/uni-icon.vue';
 import _ from '@/common/underscore.js';
 import user from '@/common/user.js';
+
 export default {
     components: { uniLoadMore, uniIcon },
     data() {
@@ -148,7 +165,8 @@ export default {
             // avatar: '../../static/app-logo.png',
             avatar: '',
             name: '放假哦爱的',
-            money: 1000
+            money: 1000,
+            showVanDialog: false
         };
     },
 
@@ -156,33 +174,27 @@ export default {
 
     created() {
         const self = this;
-        uni.getSystemInfo({
-            success: function(res) {
-                self.text = JSON.stringify(res, '', 4);
-                console.log(res.model);
-                console.log(res.pixelRatio);
-                console.log(res.windowWidth);
-                console.log(res.windowHeight);
-                console.log(res.language);
-                console.log(res.version);
-                console.log(res.platform);
-            }
-        });
     },
 
     methods: {
+        openVanDialog() {
+            this.showVanDialog = true;
+        },
+        closeVanDialog() {
+            this.showVanDialog = false;
+        },
         makePhoneCall() {
-           uni.showModal({
-    title: '提示',
-    content: '这是一个模态弹窗',
-    success: function (res) {
-        if (res.confirm) {
-            console.log('用户点击确定');
-        } else if (res.cancel) {
-            console.log('用户点击取消');
-        }
-    }
-});
+            uni.showModal({
+                title: '提示',
+                content: '这是一个模态弹窗',
+                success: function(res) {
+                    if (res.confirm) {
+                        console.log('用户点击确定');
+                    } else if (res.cancel) {
+                        console.log('用户点击取消');
+                    }
+                }
+            });
         },
         toogleBright: function(e) {
             uni.setScreenBrightness({

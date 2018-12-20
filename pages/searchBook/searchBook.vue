@@ -1,6 +1,6 @@
 <template>
 	<view>
-		搜索书本
+	<van-search :value="value" placeholder="请输入搜索关键词" show-action @search="onSearch"  @cancel="onCancel"></van-search>
 	</view>
 </template>
 
@@ -8,9 +8,17 @@
 	export default {
 		data() {
 			return {
-				
+				value: ''
 			};
-		}
+		},
+        methods:{
+            onSearch(){
+                plus.nativeUI.alert('fuck')
+            },
+            onCancel(){
+                plus.nativeUI.alert('cancel')
+            }
+        }
 	}
 </script>
 

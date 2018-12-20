@@ -1,20 +1,23 @@
 {
 	"pages": [
 		//pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-    {
-    	"path": "pages/initPage/initPage",
-    	"style": {}
-    },
-        {
-        	"path": "pages/login/login",
-        	"style": {
-        		"navigationBarTitleText": "登录"
-        	}
-        },
+		{
+			"path": "pages/initPage/initPage",
+			"style": {}
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录"
+			}
+		},
 		{
 			"path": "pages/userCenter/userCenter",
 			"style": {
-				"navigationBarTitleText": "我的"
+				"navigationBarTitleText": "我的",
+				"usingComponents": {
+					"van-dialog": "/wxcomponents/vant/dialog/index"
+				}
 			}
 		},
 
@@ -81,16 +84,25 @@
 		// "titleNView": false
 		{
 			"path": "pages/bookDetail/bookDetail",
-			"style": {"navigationBarTitleText": "书籍详情"}
+			"style": {
+				"navigationBarTitleText": "书籍详情"
+			}
 		},
 		{
 			"path": "pages/searchBook/searchBook",
-			"style": {"navigationBarTitleText": "搜索"}
+			"style": {
+				"navigationBarTitleText": "搜索",
+				"usingComponents": {
+					"van-search": "/wxcomponents/vant/search/index"
+				}
+			}
 		},
-		
+
 		{
 			"path": "pages/register/register",
-			"style": {"navigationBarTitleText": "注册"}
+			"style": {
+				"navigationBarTitleText": "注册"
+			}
 		},
 		{
 			"path": "pages/webView/webView",
@@ -104,19 +116,27 @@
 		},
 		{
 			"path": "pages/userCenter/help/help",
-			"style": {"navigationBarTitleText": "帮助中心"}
+			"style": {
+				"navigationBarTitleText": "帮助中心"
+			}
 		},
 		{
 			"path": "pages/userCenter/userInfo/userInfo",
-			"style": {"navigationBarTitleText": "我的信息"}
+			"style": {
+				"navigationBarTitleText": "我的信息"
+			}
 		},
 		{
 			"path": "pages/userCenter/aboutUs/aboutUs",
-			"style": {"navigationBarTitleText": "关于我们"}
+			"style": {
+				"navigationBarTitleText": "关于我们"
+			}
 		},
 		{
 			"path": "pages/userCenter/suggest/suggest",
-			"style": {"navigationBarTitleText": "意见反馈"}
+			"style": {
+				"navigationBarTitleText": "意见反馈"
+			}
 		}
 	],
 	// "titleNView": false
