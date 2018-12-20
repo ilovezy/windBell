@@ -5,7 +5,7 @@
         <view class="search-tag-wrap">
             <view class="title title-with-icon">
                 <view>大家都在搜 </view>
-                <view class="iconfont icon-yaoqingjiangli"></view>
+                <view class="iconfont icon-yaoqingjiangli" @click="doShuffle"></view>
             </view>
             
             <view class="tag-wrap tag-all">
@@ -38,17 +38,17 @@ export default {
     data() {
         return {
             value: '',
-            tagList: ['热死', 'toke', 'very hot', 'haha', '反倒是建安费', '黑哦'],
-            tagHistoryList: ['方面的哦啊', '资产', '农夫', '没发过', '呵呵呵', 'fdaj']
+            tagList: ['热死', 'toke', 'very hot', 'haha', '反倒是建安费', '黑哦', 'haha反倒', 'fdah检查vfoivv'],
+            tagHistoryList: ['方面的哦啊', '资产', '农夫', '没发过', '呵呵呵', 'fdaj'],
+            randomType:  _.shuffle(['tag-1','tag-2','tag-3','tag-4','tag-5','tag-6','tag-7','tag-8','tag-9','tag-10'])
         };
     },
-    computed: {
-        randomType() {
-            var a = _.shuffle(['tag-1','tag-2','tag-3','tag-4','tag-5','tag-6','tag-7','tag-8','tag-9','tag-10'])
-            return a
-        }
-    },
+
     methods: {
+      doShuffle(){
+        this.tagList = _.shuffle(this.tagList)
+        this.randomType = _.shuffle(this.randomType)
+      },
         onSearch() {
             plus.nativeUI.alert('fuck');
         },
