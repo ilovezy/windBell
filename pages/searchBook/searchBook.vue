@@ -3,12 +3,13 @@
         <van-search :value="value" placeholder="请输入搜索关键词" show-action @search="onSearch"  @cancel="onCancel"></van-search>  
            
         <view class="search-tag-wrap">
-            <view class="title">
-                大家都在搜
+            <view class="title title-with-icon">
+                <view>大家都在搜 </view>
+                <view class="iconfont icon-yaoqingjiangli"></view>
             </view>
             
             <view class="tag-wrap tag-all">
-                <view v-for="(item, index) in tagList" :key="index" class="tag-item " :class="randomType">
+                <view v-for="(item, index) in tagList" :key="index" class="tag-item " :class="randomType[index]">
                     {{item}}
                 </view>
             </view>
@@ -32,6 +33,7 @@
 </template>
 
 <script>
+  import _ from '@/common/underscore'
 export default {
     data() {
         return {
@@ -42,7 +44,8 @@ export default {
     },
     computed: {
         randomType() {
-            return 'tag-type-' + Math.floor(Math.random() * 10 + 1);
+            var a = _.shuffle(['tag-1','tag-2','tag-3','tag-4','tag-5','tag-6','tag-7','tag-8','tag-9','tag-10'])
+            return a
         }
     },
     methods: {
