@@ -117,6 +117,20 @@
                   </view>
         			</view>
         		</view>
+            
+            <view class="list-item" @click="makePhoneCall">
+            	<view class="left-part">
+            		<view class="iconfont icon-tianqitubiao_qingtianzhou"></view>
+            		<view class="list-text">
+            			联系我们
+            		</view>
+            	</view>
+            	<view class="right-part">
+            			<!-- <view class="body-view">
+            					<switch @change="toogleBright" style="transform: translateX(10%) scale(0.6);" />
+            			</view> -->
+            	</view>
+            </view>
         </view>
 	</view>
 </template>
@@ -157,6 +171,19 @@ export default {
     },
 
     methods: {
+        makePhoneCall() {
+           uni.showModal({
+    title: '提示',
+    content: '这是一个模态弹窗',
+    success: function (res) {
+        if (res.confirm) {
+            console.log('用户点击确定');
+        } else if (res.cancel) {
+            console.log('用户点击取消');
+        }
+    }
+});
+        },
         toogleBright: function(e) {
             uni.setScreenBrightness({
                 value: e.detail.value ? 0.5 : 1,
