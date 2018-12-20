@@ -160,13 +160,13 @@ export default {
     justify-content: center; /*水平*/
 
     .top-container {
-        height: 240px;
+        height: 200px;
         background: @theme-color-dark;
         color: #fff;
         display: flex;
         align-items: center;
         padding: 0 15px;
-        padding-top: 40px;
+        // padding-top: 40px;
         box-sizing: border-box;
         .left-wrap {
             box-shadow: 0 0 5px #ccc;

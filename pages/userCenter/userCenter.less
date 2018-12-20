@@ -1,0 +1,98 @@
+@import '../../style/variable.less';
+
+.userCenter-page {
+    background: #f8f8f8;
+    
+    .top-container {
+        background: #fff;
+        height: 140px;
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+        .left-wrap {
+            .avatar-wrap {
+                width: 70px;
+                height: 70px;
+                border-radius: 70px;
+                box-sizing: border-box;
+                border: 2px solid @grey-light;
+                overflow: hidden;
+
+                .avatar-img {
+                    width: 100%;
+                }
+
+                .iconfont {
+                    font-size: 46px;
+                    text-align: center;
+                    position: relative;
+                    top: 5px;
+                    color: @grey-light;
+                }
+            }
+        }
+
+        .right-wrap {
+            padding-left: 20px;
+            .username {
+                font-size: 18px;
+                padding-bottom: 10px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                // max-width: 50%;
+                max-width: 200px;
+                color: @grey-normal;
+            }
+
+            .money {
+                font-size: 14px;
+                color: @grey-light;
+
+                .money-unit {
+                    display: inline-block;
+                    color: @theme-color;
+                }
+            }
+        }
+    }
+
+    .list-item-wrap {
+        background: #f8f8f8;
+        padding-top: 15px;
+        .list-item {
+            background: #fff;
+            padding: 12px 15px;
+            border-bottom: 1px solid #f8f8f8;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: @grey-normal;
+//             &:active {
+//                 background: #f8f8f8;
+//             }
+            .left-part {
+                display: flex;
+                align-items: center;
+
+                .iconfont {
+                    font-size: 20px;
+                }
+
+                .list-text {
+                    font-size: 16px;
+                    padding-left: 8px;
+                }
+            }
+
+            .right-part {
+                align-items: center;
+
+                .iconfont {
+                    font-size: 22px;
+                    color: @grey-light;
+                }
+            }
+        }
+    }
+}

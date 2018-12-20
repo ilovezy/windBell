@@ -21,14 +21,7 @@
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam non eum sapiente ducimus eaque ullam quidem laudantium reiciendis. Natus illum est assumenda? Perspiciatis corporis doloremque itaque corrupti distinctio sapiente ab?
         </view>
         
-		<uni-drawer :visible="rightDrawerVisible" mode="left" @close="closeRightDrawer">
-      <view style="height: 100%; overflow-y: scroll;">
-      <view>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro dolorem libero nam. Voluptatum distinctio quos odio accusantium illo nostrum error asperiores architecto impedit expedita nam consequatur necessitatibus quasi voluptatibus tempore.</view>
-      <view>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro dolorem libero nam. Voluptatum distinctio quos odio accusantium illo nostrum error asperiores architecto impedit expedita nam consequatur necessitatibus quasi voluptatibus tempore.</view><view>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro dolorem libero nam. Voluptatum distinctio quos odio accusantium illo nostrum error asperiores architecto impedit expedita nam consequatur necessitatibus quasi voluptatibus tempore.</view><view>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro dolorem libero nam. Voluptatum distinctio quos odio accusantium illo nostrum error asperiores architecto impedit expedita nam consequatur necessitatibus quasi voluptatibus tempore.</view><view>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro dolorem libero nam. Voluptatum distinctio quos odio accusantium illo nostrum error asperiores architecto impedit expedita nam consequatur necessitatibus quasi voluptatibus tempore.</view><view>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro dolorem libero nam. Voluptatum distinctio quos odio accusantium illo nostrum error asperiores architecto impedit expedita nam consequatur necessitatibus quasi voluptatibus tempore.</view><view>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro dolorem libero nam. Voluptatum distinctio quos odio accusantium illo nostrum error asperiores architecto impedit expedita nam consequatur necessitatibus quasi voluptatibus tempore.</view><view>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro dolorem libero nam. Voluptatum distinctio quos odio accusantium illo nostrum error asperiores architecto impedit expedita nam consequatur necessitatibus quasi voluptatibus tempore.</view><view>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro dolorem libero nam. Voluptatum distinctio quos odio accusantium illo nostrum error asperiores architecto impedit expedita nam consequatur necessitatibus quasi voluptatibus tempore.</view><view>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro dolorem libero nam. Voluptatum distinctio quos odio accusantium illo nostrum error asperiores architecto impedit expedita nam consequatur necessitatibus quasi voluptatibus tempore.</view><view>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro dolorem libero nam. Voluptatum distinctio quos odio accusantium illo nostrum error asperiores architecto impedit expedita nam consequatur necessitatibus quasi voluptatibus tempore.</view>
-      </view>
-            
-    </uni-drawer>
-   <view class='iconfont icon-wo'></view>
+        <button type="primary" class="btn" @click="doClear">清除缓存</button>
 
 	</view>
 </template>
@@ -57,19 +50,19 @@ export default {
     onLoad() {
         this.sayHello();
     },
-    onShow: function () {
-      // plus.nativeUI.showWaiting( "等待中..." );
-      // plus.nativeUI.alert('App Show');
-    	console.log('App Show')
+    onShow: function() {
+        // plus.nativeUI.showWaiting( "等待中..." );
+        // plus.nativeUI.alert('App Show');
+        console.log('App Show');
     },
-    onHide: function () {  
-      // plus.nativeUI.alert('App Hide');
-    	console.log('App Hide')
+    onHide: function() {
+        // plus.nativeUI.alert('App Hide');
+        console.log('App Hide');
     },
     onNavigationBarButtonTap(e) {
         // this.rightDrawerVisible = !this.rightDrawerVisible;
         uni.navigateTo({
-        		url: '/pages/searchBook/searchBook'
+            url: '/pages/searchBook/searchBook'
         });
     },
     onBackPress() {
@@ -80,6 +73,9 @@ export default {
         }
     },
     methods: {
+        doClear() {
+            plus.nativeUI.alert('清除成功');
+        },
         sayHello() {
             // plus.nativeUI.alert('HelloL');
         },
@@ -127,11 +123,10 @@ export default {
                 url: '/pages/webView/webView'
             });
         },
-        goBaidu(){
-          uni.navigateTo({
-          		url: '/pages/webView/baidu/baidu'
-          });
-          
+        goBaidu() {
+            uni.navigateTo({
+                url: '/pages/webView/baidu/baidu'
+            });
         }
     }
 };
