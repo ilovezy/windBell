@@ -16,6 +16,7 @@
 </template>
 
 <script>
+    import user from '@/common/user'
 export default {
     data() {
         return {
@@ -48,6 +49,7 @@ export default {
             uni.switchTab({
                 url: '/pages/index/index'
             });
+            user.setReadSlider()
         }
     }
 };

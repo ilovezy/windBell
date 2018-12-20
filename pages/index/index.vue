@@ -20,21 +20,14 @@
         <view class="test-less">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam non eum sapiente ducimus eaque ullam quidem laudantium reiciendis. Natus illum est assumenda? Perspiciatis corporis doloremque itaque corrupti distinctio sapiente ab?
         </view>
-        
         <button type="primary" class="btn" @click="doClear">清除缓存</button>
-
 	</view>
 </template>
 
 <script>
-import qrcode from '../../components/qrcode/qrcode.vue';
-import uniDrawer from '../../components/uni-drawer.vue';
-import uniIcon from '../../components/uni-icon.vue';
+  import user from '@/common/user'
 export default {
     components: {
-        qrcode,
-        uniDrawer,
-        uniIcon
     },
     data() {
         return {
@@ -75,6 +68,7 @@ export default {
     methods: {
         doClear() {
             plus.nativeUI.alert('清除成功');
+            user.clearReadSlider()
         },
         sayHello() {
             // plus.nativeUI.alert('HelloL');

@@ -1,6 +1,6 @@
 const User = require('./user.js');
-let token = User.getToken()
-let memberType = User.getMemberType()
+// let token = User.getToken()
+// let memberType = User.getMemberType()
 
 const CONFIG = {
   apiUrl: 'http://115.159.210.127:9003/',
@@ -8,8 +8,10 @@ const CONFIG = {
   clientId: 'wechat_app',
   clientSecret: '123456',
 
-  memberType: memberType,
-  token: token
+  // memberType: memberType,
+  // token: token,
+  
+  showOpenSlider: true, // 是否开启启动页轮播
 }
 
 module.exports = CONFIG

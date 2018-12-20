@@ -5,15 +5,25 @@
 </template>
 
 <script>
-	export default {
-		data() {
-			return {
-				
-			};
-		}
-	}
+import user from '@/common/user';
+import config from '@/common/config';
+export default {
+    data() {
+        return {};
+    },
+    created() {
+        if (!user.hasReadSlider() && config.showOpenSlider) {
+            uni.redirectTo({
+                url: '/pages/openSlider/openSlider'
+            });
+        } else {
+            uni.switchTab({
+                url: '/pages/index/index'
+            });
+        }
+    }
+};
 </script>
 
 <style>
-
 </style>
