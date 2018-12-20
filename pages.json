@@ -1,147 +1,153 @@
 {
-    "pages" : [
-        //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-        
+	"pages": [
+		//pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
         {
-        	"path" : "pages/initPage/initPage",
-        	"style" : {}
+        	"path": "pages/login/login",
+        	"style": {
+        		"navigationBarTitleText": "登录"
+        	}
         },
-        {
-            "path" : "pages/openSlider/openSlider",
-            "style" : {
-                "app-plus" : {
-                    "titleNView" : "false"
-                }
-            }
-        },
-        {
-            "path" : "pages/bookShelf/bookShelf",
-            "style" : {
-                "enablePullDownRefresh" : "true",
-                "navigationBarTitleText" : "书架",
-                "app-plus" : {
-                    "titleNView" : {},
-                    // "type": "transparent"
-                    // "titleSize": "14px",
-                    // "backgroundColor": "#fff",
-                    // "titleColor": "#404040"
-                    // "homeButton": "true"
-                    // "bounce": "none",
-                    "pullToRefresh" : {
-                        "support" : true,
-                        "color" : "#607D8B",
-                        "style" : "circle",
-                        "offset" : "200px",
-                        "contentdown" : {
-                            "caption" : "下拉可刷新自定义文本"
-                        },
-                        "contentover" : {
-                            "caption" : "释放可刷新自定义文本"
-                        },
-                        "contentrefresh" : {
-                            "caption" : "正在刷新自定义文本"
-                        }
-                    }
-                }
-            }
-        },
-        {
-            "path" : "pages/index/index",
-            "style" : {
-                "enablePullDownRefresh" : "true",
-                "navigationBarTitleText" : "书城",
-                "app-plus" : {
-                    "titleNView" : {
-                        "buttons" : [
-                            {
-                                "text" : "\ue642",
-                                "color" : "#666",
-                                "fontSrc" : "/static/iconfont/iconfont.ttf",
-                                "fontSize" : "22px"
-                            }
-                        ]
-                    },
-                    // "fontWeight":"bold"
-                    // "float": "left"
-                    "bounce" : "none"
-                }
-            }
-        },
-        {
-            "path" : "pages/userCenter/userCenter",
-            "style" : {
-                "navigationBarTitleText" : "我的"
-            }
-        },
-        // "titleNView": false
-        {
-            "path" : "pages/bookDetail/bookDetail",
-            "style" : {}
-        },
-        {
-            "path" : "pages/searchBook/searchBook",
-            "style" : {}
-        },
-        {
-            "path" : "pages/login/login",
-            "style" : {}
-        },
-        {
-            "path" : "pages/register/register",
-            "style" : {}
-        },
-        {
-            "path" : "pages/aboutUs/aboutUs",
-            "style" : {
-                "navigationBarTitleText" : "关于我们"
-            }
-        },
-        {
-            "path" : "pages/webView/webView",
-            "style" : {}
-        },
-        {
-            "path" : "pages/user/mySelf/mySelf",
-            "style" : {}
-        },
-        {
-            "path" : "pages/webView/baidu/baidu",
-            "style" : {
-                "navigationStyle" : "custom"
-            }
-        }
-    ],
-    // "titleNView": false
-    "globalStyle" : {
-        "navigationBarTextStyle" : "black",
-        "navigationBarTitleText" : "风铃阅读",
-        "navigationBarBackgroundColor" : "#f6f6f6",
-        "backgroundColor" : "#f8f8f8"
-    },
-    "tabBar" : {
-        "color" : "#bdbdbd",
-        "selectedColor" : "#428bca",
-        "borderStyle" : "black",
-        "backgroundColor" : "#f8f8f8",
-        "list" : [
-            {
-                "pagePath" : "pages/bookShelf/bookShelf",
-                "iconPath" : "static/tabIcon/bookShelf.png",
-                "selectedIconPath" : "static/tabIcon/bookShelf-active.png",
-                "text" : "书架"
-            },
-            {
-                "pagePath" : "pages/index/index",
-                "iconPath" : "static/tabIcon/bookCity.png",
-                "selectedIconPath" : "static/tabIcon/bookCity-active.png",
-                "text" : "书城"
-            },
-            {
-                "pagePath" : "pages/userCenter/userCenter",
-                "iconPath" : "static/tabIcon/userCenter.png",
-                "selectedIconPath" : "static/tabIcon/userCenter-active.png",
-                "text" : "我的"
-            }
-        ]
-    }
+		{
+			"path": "pages/userCenter/userCenter",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		},
+		{
+			"path": "pages/initPage/initPage",
+			"style": {}
+		},
+		{
+			"path": "pages/openSlider/openSlider",
+			"style": {
+				"app-plus": {
+					"titleNView": "false"
+				}
+			}
+		},
+		{
+			"path": "pages/bookShelf/bookShelf",
+			"style": {
+				"enablePullDownRefresh": "true",
+				"navigationBarTitleText": "书架",
+				"app-plus": {
+					"titleNView": {},
+					// "type": "transparent"
+					// "titleSize": "14px",
+					// "backgroundColor": "#fff",
+					// "titleColor": "#404040"
+					// "homeButton": "true"
+					// "bounce": "none",
+					"pullToRefresh": {
+						"support": true,
+						"color": "#607D8B",
+						"style": "circle",
+						"offset": "200px",
+						"contentdown": {
+							"caption": "下拉可刷新自定义文本"
+						},
+						"contentover": {
+							"caption": "释放可刷新自定义文本"
+						},
+						"contentrefresh": {
+							"caption": "正在刷新自定义文本"
+						}
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/index/index",
+			"style": {
+				"enablePullDownRefresh": "true",
+				"navigationBarTitleText": "书城",
+				"app-plus": {
+					"titleNView": {
+						"buttons": [{
+							"text": "\ue642",
+							"color": "#666",
+							"fontSrc": "/static/iconfont/iconfont.ttf",
+							"fontSize": "22px"
+						}]
+					},
+					// "fontWeight":"bold"
+					// "float": "left"
+					"bounce": "none"
+				}
+			}
+		},
+
+		// "titleNView": false
+		{
+			"path": "pages/bookDetail/bookDetail",
+			"style": {"navigationBarTitleText": "书籍详情"}
+		},
+		{
+			"path": "pages/searchBook/searchBook",
+			"style": {"navigationBarTitleText": "搜索"}
+		},
+		
+		{
+			"path": "pages/register/register",
+			"style": {"navigationBarTitleText": "注册"}
+		},
+		{
+			"path": "pages/webView/webView",
+			"style": {}
+		},
+		{
+			"path": "pages/webView/baidu/baidu",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/userCenter/help/help",
+			"style": {"navigationBarTitleText": "帮助中心"}
+		},
+		{
+			"path": "pages/userCenter/userInfo/userInfo",
+			"style": {"navigationBarTitleText": "我的信息"}
+		},
+		{
+			"path": "pages/userCenter/aboutUs/aboutUs",
+			"style": {"navigationBarTitleText": "关于我们"}
+		},
+		{
+			"path": "pages/userCenter/suggest/suggest",
+			"style": {"navigationBarTitleText": "意见反馈"}
+		}
+	],
+	// "titleNView": false
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "风铃阅读",
+		"navigationBarBackgroundColor": "#f6f6f6",
+		"backgroundColor": "#f8f8f8"
+	},
+	"tabBar": {
+		"color": "#bdbdbd",
+		"selectedColor": "#428bca",
+		"borderStyle": "black",
+		"backgroundColor": "#f8f8f8",
+		"list": [{
+				"pagePath": "pages/bookShelf/bookShelf",
+				"iconPath": "static/tabIcon/bookShelf.png",
+				"selectedIconPath": "static/tabIcon/bookShelf-active.png",
+				"text": "书架"
+			},
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/tabIcon/bookCity.png",
+				"selectedIconPath": "static/tabIcon/bookCity-active.png",
+				"text": "书城"
+			},
+			{
+				"pagePath": "pages/userCenter/userCenter",
+				"iconPath": "static/tabIcon/userCenter.png",
+				"selectedIconPath": "static/tabIcon/userCenter-active.png",
+				"text": "我的"
+			}
+		]
+	}
 }

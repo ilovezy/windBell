@@ -8,15 +8,7 @@
         <view>
             <text class="title">{{title}}</text>
         </view>
-        <button type="primary" class="btn" @click="goCenter">go center</button>
-        <br>
-        <button type="primary" class="btn" @click="goTabbarSet">go TabbarSet</button>
-        <br>
-        <button type="primary" class="btn" @click="goWebview">go webview</button>
-        <br>
-     <button type="primary" class="btn" @click="goMySelf">go mySelf</button>
-     <br>
-     <button type="primary" class="btn" @click="goBaidu">go baidu</button>
+       
         <view class="test-less">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam non eum sapiente ducimus eaque ullam quidem laudantium reiciendis. Natus illum est assumenda? Perspiciatis corporis doloremque itaque corrupti distinctio sapiente ab?
         </view>
@@ -96,22 +88,7 @@ export default {
                 title: '搜索'
             });
         },
-        goCenter() {
-            uni.navigateTo({
-                url: '/pages/searchBook/searchBook'
-            });
-        },
-        goTabbarSet() {
-            uni.navigateTo({
-                url: '/pages/tabbarSet/tabbarSet'
-            });
-        },
-        goMySelf() {
-            uni.navigateTo({
-                url: '/pages/user/mySelf/mySelf'
-            });
-        },
-
+        
         goWebview() {
             uni.navigateTo({
                 url: '/pages/webView/webView'

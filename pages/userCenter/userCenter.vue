@@ -1,21 +1,36 @@
 <template>
-	<view class="userCenter-page">
+    <view class="userCenter-page">
         <view class="top-container">
-            <view class="left-wrap">
-                <view class="avatar-wrap">
-                    <image class="avatar-img" :src="avatar" v-if="avatar" mode="widthFix"></image>
-                    <view class="iconfont icon-tubiao-" v-else></view>
-                </view>
+            <view v-if="isLogin" class="is-login">
+              <view class="left-wrap">
+              		<view class="avatar-wrap">
+              				<image class="avatar-img" :src="avatar" v-if="avatar" mode="widthFix"></image>
+              				<view class="iconfont icon-tubiao-" v-else></view>
+              		</view>
+              </view>
+              
+              <view class="right-wrap">
+              		<view class="username">{{name || ''}}</view>
+              		<view class="money">账户余额：<view class="money-unit">￥{{money || 0}}</view></view>
+              </view>      
             </view>
             
-            <view class="right-wrap">
-                <view class="username">{{name || ''}}</view>
-                <view class="money">账户余额：<view class="money-unit">￥{{money || 0}}</view></view>
-            </view>       
+            <navigator url="/pages/login/login" v-else class="not-login">
+              <view class="left-wrap">
+              		<view class="avatar-wrap">
+              				<view class="iconfont icon-tubiao-"></view>
+              		</view>
+              </view>
+              
+              <view class="right-wrap">
+              		<view class="login-btn">登录/注册</view>
+              </view> 
+            </navigator>
+             
         </view>
         
         <view class="list-item-wrap">
-            <view class="list-item ripple">
+            <view class="list-item">
                 <view class="left-part">
                     <view class="iconfont icon-chongzhi"></view>
                     <view class="list-text">
@@ -27,7 +42,7 @@
                 </view>
             </view>
             
-            <view class="list-item ripple">
+            <view class="list-item">
             	<view class="left-part">
             		<view class="iconfont icon-29"></view>
             		<view class="list-text">
@@ -39,7 +54,7 @@
             	</view>
             </view>
             
-            <view class="list-item ripple">
+            <view class="list-item">
             	<view class="left-part">
             		<view class="iconfont icon-yaoqingjiangli"></view>
             		<view class="list-text">
@@ -53,7 +68,7 @@
         </view>
         
         <view class="list-item-wrap">
-            <view class="list-item ripple">
+            <navigator url="help/help" class="list-item">
             	<view class="left-part">
             		<view class="iconfont icon-bangzhuzhongxin"></view>
             		<view class="list-text">
@@ -63,9 +78,9 @@
             	<view class="right-part">
             		<view class="iconfont icon-arrow-right_s"></view>
             	</view>
-            </view>
+            </navigator>
             
-            <view class="list-item ripple">
+            <navigator url="suggest/suggest" class="list-item">
             	<view class="left-part">
             		<view class="iconfont icon-yijianfankui"></view>
             		<view class="list-text">意见反馈</view>
@@ -73,19 +88,19 @@
             	<view class="right-part">
             		<view class="iconfont icon-arrow-right_s"></view>
             	</view>
-            </view>
+            </navigator>
             
-            <view class="list-item ripple" @click="updateMoney">
+            <navigator url="aboutUs/aboutUs" class="list-item">
             	<view class="left-part">
             		<view class="iconfont icon-guanyuwomen"></view>
-            		<view class="list-text">
-            			关于我们
-            		</view>
+                <view class="list-text">
+                    关于我们
+                </view>
             	</view>
             	<view class="right-part">
             		<view class="iconfont icon-arrow-right_s"></view>
             	</view>
-            </view>
+            </navigator>
         </view>
         
         <view class="list-item-wrap">
@@ -109,12 +124,13 @@
 <script>
 import uniLoadMore from '@/components/uni-load-more.vue';
 import uniIcon from '@/components/uni-icon.vue';
-import _ from '../../common/underscore.js';
-
+import _ from '@/common/underscore.js';
+import user from '@/common/user.js';
 export default {
     components: { uniLoadMore, uniIcon },
     data() {
         return {
+            isLogin: user.isLogined(),
             // avatar: '../../static/app-logo.png',
             avatar: '',
             name: '放假哦爱的',

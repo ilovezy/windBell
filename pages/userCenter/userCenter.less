@@ -4,11 +4,18 @@
     background: #f8f8f8;
     
     .top-container {
-        background: #fff;
-        height: 140px;
-        display: flex;
-        align-items: center;
-        padding: 0 15px;
+        .is-login, .not-login {
+           background: #fff;
+           height: 140px;
+           display: flex;
+           align-items: center;
+           padding: 0 15px; 
+        }
+        
+        .login-btn {
+            color: #666;
+        }
+       
         .left-wrap {
             .avatar-wrap {
                 width: 70px;
@@ -68,9 +75,9 @@
             align-items: center;
             justify-content: space-between;
             color: @grey-normal;
-//             &:active {
-//                 background: #f8f8f8;
-//             }
+            &:active {
+                background: #f8f8f8;
+            }
             .left-part {
                 display: flex;
                 align-items: center;
