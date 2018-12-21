@@ -1,8 +1,8 @@
 <template>
 	<view class="content">
        <swiper :indicator-dots="indicatorDots" style="height: 400upx;" :autoplay="autoplay" :circular="true" :interval="interval" :duration="duration">
-            <swiper-item v-for="item in itemList" :key="item" >
-                <image style="width: 100%;" :src="item" mode="top left"></image>
+            <swiper-item v-for="(item, index) in itemList" :key="index" >
+                <image style="width: 100%;" :src="item" mode="scaleToFill"></image>
             </swiper-item>
         </swiper>
         <view>
@@ -24,7 +24,7 @@ export default {
     data() {
         return {
             title: 'Hello 风铃阅读',
-            itemList: ['../../static/lolis/dd.jpg', '../../static/lolis/ee.jpg'],
+            itemList: ['../../static/lolis/timg.png', '../../static/lolis/timg1.png', '../../static/lolis/timg2.png'],
             indicatorDots: true,
             autoplay: true,
             interval: 5000,
@@ -47,7 +47,7 @@ export default {
     onNavigationBarButtonTap(e) {
         // this.rightDrawerVisible = !this.rightDrawerVisible;
         uni.navigateTo({
-            url: '/pages/searchBook/searchBook'
+            url: '/pages/search/searchBook/searchBook'
         });
     },
     onBackPress() {

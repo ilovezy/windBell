@@ -1,6 +1,6 @@
 <template>
 	<view class="search-result-page">
-		<view v-for="(item, index) in list" :key="index" class="search-list-item">
+		<view v-for="(item, index) in list" :key="index" class="search-list-item" @click="goBookDetail">
             <image class="cover" :src="item.cover" mode="scaleToFill"></image>
             
             <view class="detail-container">
@@ -137,7 +137,9 @@ export default {
     },
     methods: {
         goBookDetail() {
-            plus.nativeUI.alert('前往书本详情');
+            uni.navigateTo({
+            	url: '/pages/bookDetail/bookDetail'
+            })
         },
 
         addToBookShelf() {

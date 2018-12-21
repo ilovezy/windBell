@@ -1,6 +1,6 @@
 <template>
 	<view>
-        <van-search :value="value" placeholder="请输入搜索关键词" show-action @search="onSearch"  @cancel="onCancel"></van-search>  
+        <van-search :value="value" placeholder="请输入搜索关键词" focus show-action @search="onSearch"  @cancel="onCancel"></van-search>  
            
         <view class="search-tag-wrap">
             <view class="title title-with-icon">
@@ -50,10 +50,13 @@ export default {
         this.randomType = _.shuffle(this.randomType)
       },
         onSearch() {
-            plus.nativeUI.alert('fuck');
+            // plus.nativeUI.alert('fuck');
+            uni.navigateTo({
+            	url: '../searchResult/searchResult'
+            })
         },
         onCancel() {
-            plus.nativeUI.alert('cancel');
+            // plus.nativeUI.alert('cancel');
         }
     }
 };

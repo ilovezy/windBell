@@ -1,0 +1,117 @@
+@import '../../style/variable.less';
+.book-shelf-page {
+    display: flex;
+    flex-flow: column;
+    justify-content: center; /*水平*/
+    .book-basic {
+        display: flex;
+        height: 180px;
+        box-sizing: border-box;
+        border-bottom: 1px solid #f8f8f8;
+        padding: 30px 15px;
+        // background: red;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 15px;
+        .mask-bg-img {
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            position: absolute;
+            z-index: 1;
+            opacity: 0.1;
+        }
+
+        .book-main-wrap {
+            z-index: 10;
+            display: flex;
+        }
+        .avatar {
+            width: 90px;
+            height: 120px;
+            box-shadow: 0 0 5px #aaa;
+        }
+
+        .detail {
+            padding-left: 15px;
+            padding-right: 15px;
+            color: #999;
+            .detail-title {
+                font-size: 16px;
+                font-weight: bold;
+                color: #666;
+                margin-bottom: 10px;
+            }
+            .detail-writer {
+                font-size: 14px;
+                margin-bottom: 5px;
+            }
+
+            .btn-keep-read {
+                display: inline-block;
+                font-size: 14px;
+                background: #F8F8F8;
+                color: #999;
+                padding: 5px 15px;
+            }
+        }
+    }
+
+    .list-wrap {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        justify-content: space-between;
+        // align-items: center; /*垂直*/
+        flex-wrap: wrap; /*超出宽度强制换行*/
+        padding: 15px;
+        padding-top: 0;
+        box-sizing: border-box;
+
+        .list-item {
+            width: 30%;
+            max-width: 120px;
+            // border: 1px solid #eaeaea;
+            margin-bottom: 15px;
+            // overflow: hidden;
+            // box-shadow: 0 0 5px #ccc;
+            // border-radius: 4px;
+            overflow: hidden;
+
+            .cover {
+                width: 100%;
+                height: 100px;
+            }
+            .basic-info {
+                padding: 5px;
+                padding-top: 0;
+                .title {
+                    font-size: 12px;
+                    color: #666;
+                    padding-bottom: 5upx;
+                }
+
+                .writer {
+                    font-size: 10px;
+                    color: #999;
+                }
+            }
+        }
+
+        .list-item-plus {
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            font-size: 40px;
+            color: #999;
+            box-shadow: 0 0 5px #ccc;
+        }
+
+        .list-item-placeholder {
+            width: 30%;
+            max-width: 120px;
+            margin-bottom: 15px;
+        }
+    }
+}

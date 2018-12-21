@@ -1,18 +1,22 @@
 <template>
 	<view class="book-shelf-page">
-        <view class="top-container">
-            <view class="left-wrap">
-                <image :src="recentItem.cover" class="cover" mode="scaleToFill"></image>
-            </view>
-            <view class="right-wrap">
-                <view class="title">{{recentItem.title}}</view>
-                <view class="writer" style="">
-                    {{recentItem.writer}}
-                </view>
-                <view class="btn-keep-read ripple"> 继续阅读</view>
-            </view>
+        <view class="book-basic">
+        	<image class="mask-bg-img" :src="recentItem.cover" mode="widthFix"></image>
+        	<view class="book-main-wrap">
+        		<image class="avatar" :src="recentItem.cover" mode="scaleToFill"></image>
+        		<view class="detail">
+        			<view class="detail-title">
+        			{{recentItem.title}}
+        			</view>
+        			<view class="detail-writer">
+        		{{recentItem.writer}}
+        			</view>
+        			<view class="btn-keep-read ripple"> 继续阅读</view>
+        		</view>
+        	</view>
         </view>
-		<view>
+        
+        <view>
             <view v-if="showLoading">
                 <cc-loading></cc-loading>
             </view>
@@ -59,7 +63,7 @@ export default {
     },
 
     mounted() {
-        this.getData()
+        this.getData();
     },
 
     onPullDownRefresh() {
@@ -67,13 +71,16 @@ export default {
     },
 
     methods: {
-        setCurrentBook(item){
-          this.recentItem = item  
+        setCurrentBook(item) {
+            // this.recentItem = item
+            uni.navigateTo({
+                url: '/pages/bookDetail/bookDetail'
+            });
         },
         getData() {
-            this.showLoading = true
+            this.showLoading = true;
             setTimeout(() => {
-            	this.showLoading = false;
+                this.showLoading = false;
             }, 2000);
             this.itemList = [
                 {
@@ -152,108 +159,5 @@ export default {
 </script>
 
 <style lang="less">
-@import '../../style/variable.less';
-.book-shelf-page {
-    display: flex;
-    flex-flow: column;
-    display: flex;
-    justify-content: center; /*水平*/
-
-    .top-container {
-        height: 200px;
-        background: @theme-color-dark;
-        color: #fff;
-        display: flex;
-        align-items: center;
-        padding: 0 15px;
-        // padding-top: 40px;
-        box-sizing: border-box;
-        .left-wrap {
-            box-shadow: 0 0 5px #ccc;
-            // border-radius: 4px;
-            overflow: hidden;
-
-            .cover {
-                width: 100px;
-                height: 120px;
-            }
-        }
-
-        .right-wrap {
-            // color: #fff;
-            padding-left: 20px;
-            .title {
-                font-size: 18px;
-                padding-bottom: 10px;
-            }
-
-            .writer {
-                font-size: 14px;
-                padding-bottom: 10px;
-            }
-            
-            .btn-keep-read {
-                display: inline-block;
-                font-size: 14px;
-                border: 1px solid #fff;
-                padding: 5px 15px;
-            }
-        }
-    }
-
-    .list-wrap {
-        width: 100%;
-        max-width: 100%;
-        display: flex;
-        justify-content: space-between;
-        // align-items: center; /*垂直*/
-        flex-wrap: wrap; /*超出宽度强制换行*/
-        padding: 15px;
-        box-sizing: border-box;
-
-        .list-item {
-            width: 30%;
-            max-width: 120px;
-            // border: 1px solid #eaeaea;
-            margin-bottom: 15px;
-            // overflow: hidden;
-            box-shadow: 0 0 5px #ccc;
-            // border-radius: 4px;
-            overflow: hidden;
-
-            .cover {
-                width: 100%;
-                height: 100px;
-            }
-            .basic-info {
-                padding: 5px;
-                padding-top: 0;
-                .title {
-                    font-size: 12px;
-                    color: #666;
-                    padding-bottom: 5upx;
-                }
-
-                .writer {
-                    font-size: 10px;
-                    color: #999;
-                }
-            }
-        }
-
-        .list-item-plus {
-            height: 100px;
-            line-height: 100px;
-            text-align: center;
-            font-size: 40px;
-            color: #999;
-        }
-
-        .list-item-placeholder {
-            width: 30%;
-            max-width: 120px;
-            margin-bottom: 15px;
-        }
-    }
-}
+@import 'bookShelf.less';
 </style>
