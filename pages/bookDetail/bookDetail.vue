@@ -2,9 +2,9 @@
 	<view class="book-detail-page">
         <view class="main-detail-wrap">
             <view class="book-basic">
-                <image class="mask-bg-img" src="../../static/lolis/dd.jpg" mode="widthFix"></image>
+                <image class="mask-bg-img" src="../../static/lolis/c.jpg" mode="widthFix"></image>
                 <view class="book-main-wrap">
-                    <image class="avatar" src="../../static/lolis/dd.jpg" mode="scaleToFill"></image>
+                    <image class="avatar" src="../../static/lolis/c.jpg" mode="scaleToFill"></image>
                     <view class="detail">
                         <view class="detail-title">
                             晒帅，你媳妇吼了
@@ -69,7 +69,7 @@
                 加书架
             </view>
             
-            <view class="read-btn">
+            <view class="read-btn" @click="goReadBook">
             	开始阅读
             </view>
         </view>
@@ -80,6 +80,14 @@
 export default {
     data() {
         return {};
+    },
+    
+    methods:{
+        goReadBook(){
+            uni.navigateTo({
+            	url: '/pages/readBook/readBook'
+            })
+        }
     }
 };
 </script>

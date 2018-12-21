@@ -55,7 +55,7 @@ export default {
             title: 'Hello 风铃阅读',
             recentItem: {
                 title: 'hello',
-                cover: '../../static/lolis/a.png',
+                cover: '../../static/lolis/a.jpg',
                 writer: 'test'
             },
             itemList: [],
@@ -91,7 +91,7 @@ export default {
             this.itemList = [
                 {
                     title: 'hello',
-                    cover: '../../static/lolis/a.png',
+                    cover: '../../static/lolis/a.jpg',
                     writer: 'test'
                 },
                 {
@@ -101,7 +101,7 @@ export default {
                 },
                 {
                     title: '呵呵dd发发顺丰的撒',
-                    cover: '../../static/lolis/d.png',
+                    cover: '../../static/lolis/d.jpg',
                     writer: '33放大法'
                 },
                 {
@@ -116,7 +116,7 @@ export default {
                 },
                 {
                     title: '呵呵dd发发顺丰的撒',
-                    cover: '../../static/lolis/d.png',
+                    cover: '../../static/lolis/d.jpg',
                     writer: '33放大法'
                 },
                 {
