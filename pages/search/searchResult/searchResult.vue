@@ -33,27 +33,52 @@
                 </view>
             </view>
         </view>
-	</view>
+	
+				<uni-load-more :loadingType="loadingType" :contentText="contentText"></uni-load-more>
+
+    </view>
 </template>
 
 <script>
+import uniLoadMore from '@/components/uni-load-more.vue';
+
 export default {
+    components: {
+        uniLoadMore
+    },
     data() {
         return {
+            title: 'uni-load-more',
+            loadingType: 0,
+            contentText: {
+                contentdown: '上拉显示更多',
+                contentrefresh: '正在加载...',
+                contentnomore: '没有更多数据了'
+            },
+
             list: [
                 {
                     cover: '../../../static/lolis/a.png',
                     title: '心理罪城市之光',
                     writer: '小蜜蜂',
-                    desc: '喝酒诶哦发货到你丰富的睡觉奥if发的撒娇喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法发动机搜啊方法',
+                    desc:
+                        '喝酒诶哦发货到你丰富的睡觉奥if发的撒娇喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法发动机搜啊方法',
                     tags: ['完结', '27万字', '悬疑类', '现代27万字']
                 },
                 {
                     cover: '../../../static/lolis/b.png',
-                    title: '喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法',
-                    writer: '喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法',
-                    desc: '喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法',
-                    tags: ['完结', '27万字', '喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法', '现代']
+                    title:
+                        '喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法',
+                    writer:
+                        '喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法',
+                    desc:
+                        '喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法',
+                    tags: [
+                        '完结',
+                        '27万字',
+                        '喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法',
+                        '现代'
+                    ]
                 },
                 {
                     cover: '../../../static/lolis/c.png',
@@ -86,7 +111,30 @@ export default {
             ]
         };
     },
-
+    onReachBottom() {
+        if (this.loadingType !== 0) {
+            return;
+        }
+        this.loadingType = 1;
+        let length = this.list.length || 0;
+        let list = [];
+        list.push({
+            cover: '../../../static/lolis/dd.jpg',
+            title: '心理罪城之光',
+            writer: '小蜜蜂',
+            desc: '喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法',
+            tags: ['完结', '27万字', '悬疑类', '现代']
+        });
+        setTimeout(() => {
+            console.log(length)
+            if (length > 10) {
+                this.loadingType = 2;
+                return;
+            }
+            this.list = this.list.concat(list);
+            this.loadingType = 0;
+        }, 800);
+    },
     methods: {
         goBookDetail() {
             plus.nativeUI.alert('前往书本详情');

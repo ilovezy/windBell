@@ -62,7 +62,7 @@
 	.load-more {
 		display: flex;
 		flex-direction: row;
-		height: 80upx;
+		height: 120upx;
 		align-items: center;
 		justify-content: center;
 	}
