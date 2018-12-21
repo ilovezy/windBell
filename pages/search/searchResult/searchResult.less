@@ -1,0 +1,97 @@
+@import '../../../style/variable.less';
+
+.search-result-page {
+    .search-list-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px;
+        border-bottom: 1px solid #f8f8f8;
+        
+        @item-height: 100px;
+        .cover {
+            width: 80px;
+            height: @item-height;
+        }
+        .detail-container {
+            flex: 1;
+            // background: red;
+            padding-left: 15px;
+            height: @item-height;
+
+            .header {
+                display: flex;
+                justify-content: space-between;
+                .header-left {
+                    .title {
+                        font-size: 16px;
+                        line-height: 16px;
+                        color: #666;
+                        margin-bottom: 8px;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        max-width: 160px;
+                    }
+
+                    .writer {
+                        font-size: 12px;
+                        line-height: 12px;
+                        color: #999;
+                        margin-bottom: 6px;
+                        display: flex;
+
+                        .writer-name {
+                            
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        max-width: 130px;
+                        }
+
+                        .iconfont {
+                            font-size: 12px;
+                            margin-right: 3px;
+                        }
+                    }
+                }
+
+                .header-right {
+                    .add-book-shelf {
+                        font-size: 14px;
+                        padding: 5px 10px;
+                        color: #999;
+                        background: #f8f8f8;
+                    }
+                }
+            }
+
+            .detail-desc {
+                color: #999;
+                font-size: 12px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+            }
+
+            .detail-footer {
+                // margin-top: 5px;
+                .detail-tag {
+                    box-sizing: border-box;
+                    font-size: 10px;
+                    padding: 3px 5px;
+                    color: #999;
+                    border: 1px solid #f8f8f8;
+                    display: inline-block;
+                    margin-right: 5px;
+                    margin-top: 5px;
+                    max-width: 80px;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+    }
+}
