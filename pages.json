@@ -1,6 +1,10 @@
 {
     "pages" : [
-        //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages 
+        //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages      
+        {
+            "path" : "pages/initPage/initPage",
+            "style" : {}
+        },
         {
             "path" : "pages/bookShelf/bookShelf",
             "style" : {
@@ -16,7 +20,7 @@
                     // "bounce": "none",
                     "pullToRefresh" : {
                         "support" : true,
-                        "color" : "#29b6f6",
+                        "color" : "#607d8b",
                         "style" : "circle",
                         "offset" : "180px",
                         "contentdown" : {
@@ -32,10 +36,7 @@
                 }
             }
         },
-        {
-            "path" : "pages/initPage/initPage",
-            "style" : {}
-        },
+   
         {
             "path" : "pages/search/searchResult/searchResult",
             "style" : {
@@ -152,31 +153,31 @@
     "globalStyle" : {
         "navigationBarTextStyle" : "white",
         "navigationBarTitleText" : "风铃阅读",
-        "navigationBarBackgroundColor" : "#29b6f6",
-        "backgroundColor" : "#29b6f6"
+        "navigationBarBackgroundColor" : "#607d8b",
+        "backgroundColor" : "#607d8b"
     },
     "tabBar" : {
         "color" : "#bdbdbd",
-        "selectedColor" : "#29b6f6",
+        "selectedColor" : "#607d8b",
         "borderStyle" : "black",
         "backgroundColor" : "#fff",
         "list" : [
             {
                 "pagePath" : "pages/bookShelf/bookShelf",
-                "iconPath" : "static/tabIcon/bookShelf.png",
-                "selectedIconPath" : "static/tabIcon/bookShelf-active.png",
+                "iconPath" : "static/tabIcon-dark/bookShelf.png",
+                "selectedIconPath" : "static/tabIcon-dark/bookShelf-active.png",
                 "text" : "书架"
             },
             {
                 "pagePath" : "pages/index/index",
-                "iconPath" : "static/tabIcon/bookCity.png",
-                "selectedIconPath" : "static/tabIcon/bookCity-active.png",
+                "iconPath" : "static/tabIcon-dark/bookCity.png",
+                "selectedIconPath" : "static/tabIcon-dark/bookCity-active.png",
                 "text" : "书城"
             },
             {
                 "pagePath" : "pages/userCenter/userCenter",
-                "iconPath" : "static/tabIcon/userCenter.png",
-                "selectedIconPath" : "static/tabIcon/userCenter-active.png",
+                "iconPath" : "static/tabIcon-dark/userCenter.png",
+                "selectedIconPath" : "static/tabIcon-dark/userCenter-active.png",
                 "text" : "我的"
             }
         ]
