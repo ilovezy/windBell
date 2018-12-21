@@ -35,7 +35,9 @@
             <view class="place-bg"></view>
 
             <view class="directory-wrap">
-                <view class="dir-title">目录</view>
+                <view class="dir-title">
+                   <view class="iconfont icon-mulu"></view> 目录
+                </view>
                 <view class="dir-list-wrap">
                     <view class="dir-list-item">
                         <view class="text">第一章</view>

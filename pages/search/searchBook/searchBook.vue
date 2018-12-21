@@ -5,7 +5,7 @@
         <view class="search-tag-wrap">
             <view class="title title-with-icon">
                 <view>大家都在搜 </view>
-                <view class="iconfont icon-yaoqingjiangli" @click="doShuffle"></view>
+                <view>换一换<view class="iconfont icon-iosrefreshempty" style="position: relative;top: 1px;" @click="doShuffle"></view></view>
             </view>
             
             <view class="tag-wrap tag-all">
@@ -19,7 +19,7 @@
         <view class="search-tag-wrap ">
             <view class="title title-with-icon">
                 <view>搜索历史</view>
-                <view class="iconfont icon-yaoqingjiangli"></view>
+                <view class="iconfont icon-empty"></view>
             </view>
             
             <view class="tag-wrap tag-history">

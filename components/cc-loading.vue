@@ -29,9 +29,9 @@
 <style>
 	.sk-folding-cube {
   margin: 20px auto;
-  margin-top: 100px;
-  width: 40px;
-  height: 40px;
+  margin-top: 300px;
+  width: 30px;
+  height: 30px;
   position: relative;
   -webkit-transform: rotateZ(45deg);
           transform: rotateZ(45deg);

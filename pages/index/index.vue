@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-       <swiper :indicator-dots="indicatorDots" style="height: 400upx;" :autoplay="autoplay" :circular="true" :interval="interval" :duration="duration">
+       <swiper :indicator-dots="indicatorDots" style="height: 180px;" :autoplay="autoplay" :circular="true" :interval="interval" :duration="duration">
             <swiper-item v-for="(item, index) in itemList" :key="index" >
                 <image style="width: 100%;" :src="item" mode="scaleToFill"></image>
             </swiper-item>

@@ -5,13 +5,17 @@
         	<view class="book-main-wrap">
         		<image class="avatar" :src="recentItem.cover" mode="scaleToFill"></image>
         		<view class="detail">
-        			<view class="detail-title">
-        			{{recentItem.title}}
-        			</view>
-        			<view class="detail-writer">
-        		{{recentItem.writer}}
-        			</view>
-        			<view class="btn-keep-read ripple"> 继续阅读</view>
+              <view class="detail-top">
+                <view class="detail-title">
+                  {{recentItem.title}}
+                </view>
+                <view class="detail-writer">
+                  {{recentItem.writer}}
+                </view>
+              </view>
+              <view class="detail-btn-wrap">
+                <view class="btn-keep-read" @click="goBookDetail(recentItem)"> 继续阅读</view>
+              </view>
         		</view>
         	</view>
         </view>
@@ -21,8 +25,8 @@
                 <cc-loading></cc-loading>
             </view>
             <view v-else class="list-wrap">
-                <view class="list-item ripple" @click="setCurrentBook(item)" v-for="(item,index) in itemList" :key="index">
-                    <image :src="item.cover" class="cover" mode="scaleToFill" @click="previewImg(item)"></image>
+                <view class="list-item " @click="goBookDetail(item)" v-for="(item,index) in itemList" :key="index">
+                    <image :src="item.cover" class="cover" mode="scaleToFill"></image>
                     <view class="basic-info">
                     <view class="title">
                         {{item.title}}
@@ -33,7 +37,7 @@
                     </view>
                 </view>
                 
-                <view class="list-item list-item-plus ripple" @click="pushItem">
+                <view class="list-item list-item-plus " @click="pushItem">
                     +
                 </view>
                 <view class="list-item-placeholder" v-if="itemList.length % 3 == 1">
@@ -72,7 +76,9 @@ export default {
 
     methods: {
         setCurrentBook(item) {
-            // this.recentItem = item
+            this.recentItem = item;
+        },
+        goBookDetail(item) {
             uni.navigateTo({
                 url: '/pages/bookDetail/bookDetail'
             });

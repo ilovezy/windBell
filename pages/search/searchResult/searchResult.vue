@@ -15,8 +15,8 @@
                                 <view class="writer-name">{{item.writer}}</view>
                             </view>
                         </view>
-                        <view class="header-right">
-                            <view class="add-book-shelf" @click="addToBookShelf">
+                        <view class="header-right" @click.stop="addToBookShelf">
+                            <view class="add-book-shelf">
                                 加书架
                             </view>
                         </view>
