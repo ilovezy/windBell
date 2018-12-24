@@ -2,7 +2,7 @@
 	<view class="search-result-page">
 		<view v-for="(item, index) in list" :key="index" class="search-list-item" @click="goBookDetail">
             <image class="cover" :src="item.cover" mode="scaleToFill"></image>
-            
+
             <view class="detail-container">
                 <view class="top-container">
                     <view class="header">
@@ -21,7 +21,7 @@
                             </view>
                         </view>
                     </view>
-                    
+
                     <view class="detail-desc">
                         {{item.desc}}
                     </view>
@@ -33,7 +33,7 @@
                 </view>
             </view>
         </view>
-	
+
 				<uni-load-more :loadingType="loadingType" :contentText="contentText"></uni-load-more>
 
     </view>
@@ -82,8 +82,8 @@ export default {
                 },
                 {
                     cover: '../../../static/lolis/c.png',
-                    title: 'moifda发',
-                    writer: '小蜜蜂fdas',
+                    title: 'moifda发moifda发moifda发moifda发moifda发moifda发',
+                    writer: 'moifda发moifda发moifda发moifda发moifda发moifda发',
                     desc: '喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法',
                     tags: ['完结', '27万字', '悬疑类', '现代']
                 },

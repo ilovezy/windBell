@@ -1,6 +1,7 @@
 @import '../../../style/variable.less';
 
 .search-result-page {
+    overflow-x: hidden;
     .search-list-item {
         display: flex;
         justify-content: space-between;
@@ -11,16 +12,19 @@
         .cover {
             width: 80px;
             height: @item-height;
+            // flex: none;
+            flex-shrink: 0;
         }
         .detail-container {
             flex: 1;
             // background: red;
             padding-left: 15px;
-            height: @item-height;
+            min-height: @item-height;
 
             .header {
                 display: flex;
                 justify-content: space-between;
+                overflow: hidden;
                 .header-left {
                     .title {
                         font-size: 16px;
@@ -30,7 +34,7 @@
                         overflow: hidden;
                         white-space: nowrap;
                         text-overflow: ellipsis;
-                        max-width: 160px;
+                        max-width: 150px;
                     }
 
                     .writer {
@@ -51,13 +55,42 @@
                             margin-right: 3px;
                         }
                     }
+
+                    @media (device-height: 480px) {
+                        .title {
+                            max-width: 120px;
+                        }
+
+                        .writer {
+                            .writer-name {
+                                max-width: 100px;
+                            }
+                        }
+                    }
+                    @media (device-height: 568px) {
+                        .title {
+                            max-width: 120px;
+                        }
+
+                        .writer {
+                            .writer-name {
+                                max-width: 100px;
+                            }
+                        }
+                    }
                 }
 
                 .header-right {
+                    // flex-shrink: 0; /*防止被压缩*/
+                    flex: 0 0 auto;
+                    min-width: 60px;
                     // background: red;
                     .add-book-shelf {
                         font-size: 12px;
                         padding: 5px 10px;
+                        word-wrap: normal;
+                        word-break: keep-all;
+                        box-sizing: border-box;
                         color: @theme-color;
                         background: #f8f8f8;
                         border-radius: 50px;

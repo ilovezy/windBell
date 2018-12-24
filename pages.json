@@ -1,6 +1,40 @@
 {
     "pages" : [
-        //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages 
+        //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+         
+         		{
+         				"path" : "pages/search/searchResult/searchResult",
+         				"style" : {
+         						"navigationBarTitleText" : "搜索结果"
+         				}
+         		},
+         		
+      {
+      		"path" : "pages/initPage/initPage",
+      		"style" : {}
+      },
+        {
+        		"path" : "pages/readBook/readBook",
+        		"style" : {
+              "navigationBarTitleText" : "阅读书本TODO",
+              "app-plus" : {
+              		"titleNView" : {
+              				"buttons" : [
+              						{
+              								"text" : "\ue603",
+              								// "color" : "#666",
+              								"fontSrc" : "/static/iconfont/iconfont.ttf",
+              								"fontSize" : "22px"
+              						}
+              				]
+              		},
+              		// "fontWeight":"bold"
+              		// "float": "left"
+              		"bounce" : "none"
+              }
+            }
+        },
+      
              {
              		"path" : "pages/search/searchBook/searchBook",
              		"style" : {
@@ -10,10 +44,7 @@
              				}
              		}
              },
-        {
-            "path" : "pages/initPage/initPage",
-            "style" : {}
-        },
+       
         {
             "path" : "pages/bookShelf/bookShelf",
             "style" : {
@@ -46,13 +77,6 @@
             }
         },
    
-        {
-            "path" : "pages/search/searchResult/searchResult",
-            "style" : {
-                "navigationBarTitleText" : "搜索结果"
-            }
-        },
-        
         {
             "path" : "pages/login/login",
             "style" : {
@@ -144,11 +168,8 @@
             "style" : {
                 "navigationBarTitleText" : "意见反馈"
             }
-        },
-        {
-            "path" : "pages/readBook/readBook",
-            "style" : {}
         }
+      
     ],
     // "titleNView": false
     "globalStyle" : {
