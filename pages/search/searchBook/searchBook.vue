@@ -1,14 +1,13 @@
 <template>
 	<view>
-        <van-search :value="value" placeholder="请输入搜索关键词" focus show-action @search="onSearch"  @cancel="onCancel"></van-search> 
         <view class="search-input-wrap">
-          <view class="iconfont icon-search">
-          	
+          <view class="iconfont icon-search"></view>
+          <view class="search-input-body">
+            <input class="search-input" focus placeholder="请输入搜索关键词" @confirm="onSearch" confirm-type="search" type="text" v-model="searchText" />
+            <view class="iconfont icon-clear" v-if="searchText.length > 0" @click="searchText = ''"></view>
           </view>
-          
-          <input class="search-input" type="text" value="searchText" />
-          
-          <view class="after-text">
+
+          <view class="after-text" @click="onSearch">
           	搜索
           </view>
         </view>
@@ -45,27 +44,48 @@
 </template>
 
 <script>
-  import _ from '@/common/underscore'
+import _ from '@/common/underscore';
 export default {
     data() {
         return {
             value: '',
-            tagList: ['热死', 'toke', 'very hot', 'haha', '反倒是建安费', '黑哦', 'haha反倒', 'fdah检查vfoivv'],
+            searchText: '',
+            tagList: [
+                '热死',
+                'toke',
+                'very hot',
+                'haha',
+                '反倒是建安费',
+                '黑哦',
+                'haha反倒',
+                'fdah检查vfoivv'
+            ],
             tagHistoryList: ['方面的哦啊', '资产', '农夫', '没发过', '呵呵呵', 'fdaj'],
-            randomType:  _.shuffle(['tag-1','tag-2','tag-3','tag-4','tag-5','tag-6','tag-7','tag-8','tag-9','tag-10'])
+            randomType: _.shuffle([
+                'tag-1',
+                'tag-2',
+                'tag-3',
+                'tag-4',
+                'tag-5',
+                'tag-6',
+                'tag-7',
+                'tag-8',
+                'tag-9',
+                'tag-10'
+            ])
         };
     },
 
     methods: {
-      doShuffle(){
-        this.tagList = _.shuffle(this.tagList)
-        this.randomType = _.shuffle(this.randomType)
-      },
+        doShuffle() {
+            this.tagList = _.shuffle(this.tagList);
+            this.randomType = _.shuffle(this.randomType);
+        },
         onSearch() {
             // plus.nativeUI.alert('fuck');
             uni.navigateTo({
-            	url: '../searchResult/searchResult'
-            })
+                url: '../searchResult/searchResult'
+            });
         },
         onCancel() {
             // plus.nativeUI.alert('cancel');

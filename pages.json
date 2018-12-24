@@ -1,6 +1,15 @@
 {
     "pages" : [
-        //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages      
+        //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages 
+             {
+             		"path" : "pages/search/searchBook/searchBook",
+             		"style" : {
+             				"navigationBarTitleText" : "搜索",
+             				"usingComponents" : {
+             						"van-search" : "/wxcomponents/vant/search/index"
+             				}
+             		}
+             },
         {
             "path" : "pages/initPage/initPage",
             "style" : {}
@@ -43,15 +52,7 @@
                 "navigationBarTitleText" : "搜索结果"
             }
         },
-        {
-            "path" : "pages/search/searchBook/searchBook",
-            "style" : {
-                "navigationBarTitleText" : "搜索",
-                "usingComponents" : {
-                    "van-search" : "/wxcomponents/vant/search/index"
-                }
-            }
-        },
+        
         {
             "path" : "pages/login/login",
             "style" : {
