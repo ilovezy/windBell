@@ -1,7 +1,19 @@
 <template>
 	<view>
-        <van-search :value="value" placeholder="请输入搜索关键词" focus show-action @search="onSearch"  @cancel="onCancel"></van-search>  
-           
+        <van-search :value="value" placeholder="请输入搜索关键词" focus show-action @search="onSearch"  @cancel="onCancel"></van-search> 
+        <view class="search-input-wrap">
+          <view class="iconfont icon-search">
+          	
+          </view>
+          
+          <input class="search-input" type="text" value="searchText" />
+          
+          <view class="after-text">
+          	搜索
+          </view>
+        </view>
+        
+        
         <view class="search-tag-wrap">
             <view class="title title-with-icon">
                 <view>大家都在搜 </view>

@@ -55,7 +55,7 @@ export default {
             title: 'Hello 风铃阅读',
             recentItem: {
                 title: 'hello',
-                cover: '../../static/lolis/a.jpg',
+                cover: '../../static/lolis/a.png',
                 writer: 'test'
             },
             itemList: [],
@@ -91,7 +91,7 @@ export default {
             this.itemList = [
                 {
                     title: 'hello',
-                    cover: '../../static/lolis/a.jpg',
+                    cover: '../../static/lolis/a.png',
                     writer: 'test'
                 },
                 {
@@ -101,7 +101,7 @@ export default {
                 },
                 {
                     title: '呵呵dd发发顺丰的撒',
-                    cover: '../../static/lolis/d.jpg',
+                    cover: '../../static/lolis/d.png',
                     writer: '33放大法'
                 },
                 {
@@ -109,26 +109,6 @@ export default {
                     cover: '../../static/lolis/dd.jpg',
                     writer: ''
                 },
-                {
-                    title: '呵撒',
-                    cover: '../../static/lolis/ee.jpg',
-                    writer: '33放大法dfafda发发呆'
-                },
-                {
-                    title: '呵呵dd发发顺丰的撒',
-                    cover: '../../static/lolis/d.jpg',
-                    writer: '33放大法'
-                },
-                {
-                    title: '呵呵dd发发顺丰的撒',
-                    cover: '../../static/lolis/dd.jpg',
-                    writer: ''
-                },
-                {
-                    title: '呵撒',
-                    cover: '../../static/lolis/ee.jpg',
-                    writer: '33放大法dfafda发发呆'
-                }
             ];
             uni.stopPullDownRefresh();
         },

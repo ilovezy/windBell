@@ -2,13 +2,10 @@
 	<view class="openSlider-container" style="height: 100%">
         <swiper :indicator-dots="indicatorDots" :autoplay="autoplay" class="swiper-wrap" :interval="interval" :duration="duration">
             <swiper-item class="open-slider-item">
-                <image class="open-slider-img" src="../../static/openSlider/timg.jpg" mode="scaleToFill"></image>
+                <image class="open-slider-img" src="../../static/lolis/timg.jpg" mode="scaleToFill"></image>
             </swiper-item>
             <swiper-item class="open-slider-item">
-            	<image class="open-slider-img" src="../../static/openSlider/timg1.jpg" mode="scaleToFill"></image>
-            </swiper-item>
-            <swiper-item class="open-slider-item">
-            	<image class="open-slider-img" src="../../static/openSlider/timg2.jpg" mode="scaleToFill"></image>               
+            	<image class="open-slider-img" src="../../static/lolis/timg2.jpg" mode="scaleToFill"></image>               
                 <button type="primary" class="open-btn" @click="goIndex">开启</button>
             </swiper-item>
         </swiper>
@@ -20,11 +17,6 @@
 export default {
     data() {
         return {
-            imgList: [
-                '../../static/openSlider/timg.jpg',
-                '../../static/openSlider/timg1.jpg',
-                '../../static/openSlider/timg2.jpg'
-            ],
             indicatorDots: true,
             autoplay: false,
             interval: 5000,

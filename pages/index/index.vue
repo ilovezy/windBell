@@ -24,7 +24,7 @@ export default {
     data() {
         return {
             title: 'Hello 风铃阅读',
-            itemList: ['../../static/lolis/a.jpg', '../../static/lolis/b.jpg', '../../static/lolis/c.jpg'],
+            itemList: ['../../static/lolis/timg.png', '../../static/lolis/timg1.png', '../../static/lolis/timg2.png'],
             indicatorDots: true,
             autoplay: true,
             interval: 5000,

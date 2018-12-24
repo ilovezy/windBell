@@ -2,9 +2,9 @@
 	<view class="book-detail-page">
         <view class="main-detail-wrap">
             <view class="book-basic">
-                <image class="mask-bg-img" src="../../static/lolis/c.jpg" mode="widthFix"></image>
+                <image class="mask-bg-img" src="../../static/lolis/c.png" mode="widthFix"></image>
                 <view class="book-main-wrap">
-                    <image class="avatar" src="../../static/lolis/c.jpg" mode="scaleToFill"></image>
+                    <image class="avatar" src="../../static/lolis/c.png" mode="scaleToFill"></image>
                     <view class="detail">
                         <view class="detail-title">
                             晒帅，你媳妇吼了
