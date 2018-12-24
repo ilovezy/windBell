@@ -2,10 +2,10 @@
 	<view class="openSlider-container" style="height: 100%">
         <swiper :indicator-dots="indicatorDots" :autoplay="autoplay" class="swiper-wrap" :interval="interval" :duration="duration">
             <swiper-item class="open-slider-item">
-                <image class="open-slider-img" src="../../static/lolis/timg.jpg" mode="scaleToFill"></image>
+                <image class="open-slider-img" src="../../static/lolis/timg.png" mode="scaleToFill"></image>
             </swiper-item>
             <swiper-item class="open-slider-item">
-            	<image class="open-slider-img" src="../../static/lolis/timg2.jpg" mode="scaleToFill"></image>               
+            	<image class="open-slider-img" src="../../static/lolis/timg2.png" mode="scaleToFill"></image>               
                 <button type="primary" class="open-btn" @click="goIndex">开启</button>
             </swiper-item>
         </swiper>
