@@ -30,7 +30,7 @@
         </view>
         
         <view class="list-item-wrap">
-            <view class="list-item">
+           <!-- <view class="list-item">
                 <view class="left-part">
                     <view class="iconfont icon-chongzhi"></view>
                     <view class="list-text">
@@ -40,7 +40,16 @@
                 <view class="right-part">
                     <view class="iconfont icon-arrow-right_s"></view>
                 </view>
-            </view>
+            </view> -->
+            <navigator url="../webView/webView" class="list-item">
+            	<view class="left-part">
+            		<view class="iconfont icon-chongzhi"></view>
+            		<view class="list-text">充值</view>
+            	</view>
+            	<view class="right-part">
+            		<view class="iconfont icon-arrow-right_s"></view>
+            	</view>
+            </navigator>
             
             <view class="list-item">
             	<view class="left-part">
@@ -113,7 +122,7 @@
         			</view>
         			<view class="right-part">
                    <view class="body-view">
-                      <switch @change="toogleBright" style="transform: translateX(10%) scale(0.6);" />
+                      <switch @change="toogleBright" color="#607D8B" style="transform: translateX(10%) scale(0.6);" />
                   </view>
         			</view>
         		</view>
@@ -126,8 +135,7 @@
             	</view>
             	<view class="right-part">
             			<view class="body-view">
-                    <button @click="toogleBright2">test</button>
-            					<!-- <switch @change="toogleBright" style="transform: translateX(10%) scale(0.6);" /> -->
+            					<switch @change="toogleBright2" style="transform: translateX(10%) scale(0.6);" />
             			</view>
             	</view>
             </view>
@@ -139,9 +147,7 @@
             		</view>
             	</view>
             	<view class="right-part">
-            			<!-- <view class="body-view">
-            					<switch @change="toogleBright" style="transform: translateX(10%) scale(0.6);" />
-            			</view> -->
+            		
             	</view>
             </view>
             <view class="list-item" @click="openVanDialog">
@@ -152,9 +158,6 @@
             		</view>
             	</view>
             	<view class="right-part">
-            			<!-- <view class="body-view">
-            					<switch @change="toogleBright" style="transform: translateX(10%) scale(0.6);" />
-            			</view> -->
             	</view>
             </view>
         </view>
@@ -211,26 +214,26 @@ export default {
         },
         toogleBright: function(e) {
             try {
-//                 uni.setScreenBrightness({
-//                     value: 0.5,
-//                     success: function() {
-//                         console.log('success');
-//                     }
-//                 });
-// 
+                //                 uni.setScreenBrightness({
+                //                     value: 0.5,
+                //                     success: function() {
+                //                         console.log('success');
+                //                     }
+                //                 });
+                //
                 uni.getScreenBrightness({
                     success: function(res) {
-                      uni.showModal({
-                      		title: '提示',
-                      		content: '屏幕亮度值：' + res.value,
-                      		success: function(res) {
-                      				if (res.confirm) {
-                      						console.log('用户点击确定');
-                      				} else if (res.cancel) {
-                      						console.log('用户点击取消');
-                      				}
-                      		}
-                      });
+                        uni.showModal({
+                            title: '提示',
+                            content: '屏幕亮度值：' + res.value,
+                            success: function(res) {
+                                if (res.confirm) {
+                                    console.log('用户点击确定');
+                                } else if (res.cancel) {
+                                    console.log('用户点击取消');
+                                }
+                            }
+                        });
                         console.log('屏幕亮度值：' + res.value);
                     }
                 });
@@ -251,7 +254,7 @@ export default {
         toogleBright2: function(e) {
             try {
                 uni.setScreenBrightness({
-                    value: 0.5,
+                    value: e.detail.value ? 0.5 : 1,
                     success: function() {
                         console.log('success');
                     }

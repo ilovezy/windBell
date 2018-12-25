@@ -3,7 +3,7 @@ const User = require('./user.js');
 // let memberType = User.getMemberType()
 
 const CONFIG = {
-  apiUrl: 'http://115.159.210.127:9003/',
+  apiUrl: 'http://192.168.0.155:9001/', // 王延吉本地api
   testPhone: 13575785566,
   clientId: 'wechat_app',
   clientSecret: '123456',

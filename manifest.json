@@ -54,6 +54,7 @@
                     "<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>",
                     "<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>",
                     "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>",
                     "<uses-permission android:name=\"android.permission.WRITE_SMS\"/>",
                     "<uses-permission android:name=\"android.permission.RECEIVE_USER_PRESENT\"/>",
                     "<uses-permission android:name=\"android.permission.BLUETOOTH\"/>",
@@ -72,7 +73,7 @@
             },
             "icons" : {
                 "ios" : {
-                    "appstore" : "C:/Users/PC-C/Desktop/fhcUni/app-logo.png",
+                    "appstore" : "C:/Users/PC-C/Desktop/fhcUni/windBell/static/app-logo.png",
                     "ipad" : {
                         "app" : "unpackage/res/icons/76x76.png",
                         "app@2x" : "unpackage/res/icons/152x152.png",

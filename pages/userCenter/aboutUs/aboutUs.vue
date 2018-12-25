@@ -49,7 +49,7 @@ export default {
     }
     
     .bottom-info {
-        padding: 30px 15px;
+        padding: 30px 15px 100px;
         position: fixed;
         bottom: 0;
         width: 100%;

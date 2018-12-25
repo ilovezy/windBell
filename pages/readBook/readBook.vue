@@ -37,13 +37,16 @@
       	<!-- 亮度调节面板 -->
       	<view class="lightness setting-panel-normal">
       		<view class="iconfont icon-baitian-qing"></view>
-      		<slider min="0" max="1" :value="lightness" step="0.05" color="#f5f5f5" activeColor="#769DAC" block-size="20" @changing="changeLightNess" @change="changeLightNess"/>
+      		<slider min="0" max="1" :value="lightness" step="0.05" backgroundColor="#f5f5f5" activeColor="#769DAC" block-size="20" @changing="changeLightNess" @change="changeLightNess" />
           <view class="iconfont icon-baitian-qing" style="font-weight: bold;"></view>
+          <view>{{lightness}}</view>
       	</view>
+        
+        <button @click="changeLight">set</button>
       	<!-- 字体大小调节面板 -->
       	<view class="font-size setting-panel-normal">
       		<view class="iconfont icon-font"></view>
-      		<slider min="12" max="30" :value="chapterFontSize" step="1" color="#f5f5f5" activeColor="#769DAC" block-size="20" @change="changeFontSize"/>
+      		<slider min="12" max="30" :value="chapterFontSize" step="1" color="#f5f5f5" activeColor="#769DAC" block-size="20" @changing="changeFontSize" @change="changeFontSize"/>
       		<view style="font-size: 16px;">{{chapterFontSize}}</view>
       	</view>
       </view>
@@ -67,6 +70,7 @@ export default {
     },
     data() {
         return {
+            light: 0.1,
             rightDrawerVisible: false,
             CHAPTER_SECTION_COUNT: 100,
             showDirectory: false, // 是否展示目录
@@ -77,8 +81,29 @@ export default {
             lightness: 0, // 亮度
             chapterFontSize: 14, // 默认字体大小
             chaptersSectionCount: 0, // 章节数量
-            
-            chapterList: ['发动机阿斯', 'fdas', '章节数量', '书籍对应的书架的内容', '是否展示目录', '章节数量', '书籍对应的书架的内容', '是否展示目录', '章节数量', '书籍对应的书架的内容', '是否展示目录', '章节数量', '书籍对应的书架的内容', '是否展示目录', '章节数量', '书籍对应的书架的内容', '是否展示目录', '章节数量', '书籍对应的书架的内容', '是否展示目录'], // 当前查看的章节段落
+
+            chapterList: [
+                '发动机阿斯',
+                'fdas',
+                '章节数量',
+                '书籍对应的书架的内容',
+                '是否展示目录',
+                '章节数量',
+                '书籍对应的书架的内容',
+                '是否展示目录',
+                '章节数量',
+                '书籍对应的书架的内容',
+                '是否展示目录',
+                '章节数量',
+                '书籍对应的书架的内容',
+                '是否展示目录',
+                '章节数量',
+                '书籍对应的书架的内容',
+                '是否展示目录',
+                '章节数量',
+                '书籍对应的书架的内容',
+                '是否展示目录'
+            ], // 当前查看的章节段落
             chapterDetailsConver:
                 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident obcaecati nesciunt veritatis totam voluptas cumque placeat odio quo ipsum sit similique natus expedita consequatur non reprehenderit! Totam quis necessitatibus explicabo?'
         };
@@ -95,9 +120,9 @@ export default {
         }
     },
     methods: {
-      sayFuck(itme){
-        plus.nativeUI.alert(itme)
-      },
+        sayFuck(itme) {
+            plus.nativeUI.alert(itme);
+        },
         // 回首页
         gotoHome() {
             wx.redirectTo({
@@ -123,15 +148,19 @@ export default {
         // 改变亮度
         changeLightNess(e) {
             const { value } = e.target;
+            let temp = 0 + value.toFixed(2);
             if (typeof value === 'number') {
                 this.lightness = value;
-                wx.setScreenBrightness({ value });
+                plus.screen.setBrightness(value);
+                //
+                //                 uni.setScreenBrightness({ value, success: function() {
+                //                         plus.nativeUI.alert(value)
+                //                     } });
             }
         },
         // 改变字体大小
         changeFontSize(e) {
             const { value } = e.target;
-            // plus.nativeUI.alert(value + typeof value)
             if (typeof value === 'number') {
                 this.chapterFontSize = value;
                 //                 wx.setStorage({
