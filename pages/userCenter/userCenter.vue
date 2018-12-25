@@ -160,6 +160,8 @@
             	<view class="right-part">
             	</view>
             </view>
+            
+              <slider min="0" max="1" :value="lightness" step="0.05" backgroundColor="#f5f5f5" activeColor="#769DAC" block-size="20" @changing="changeLightNess" @change="changeLightNess" />
         </view>
         
         <van-dialog id="van-dialog" :show="showVanDialog" @close="closeVanDialog" title="test" message="hello wrodfjofasj 及大家搜覅到沙发解放东鞍山佛"/>
@@ -177,6 +179,8 @@ export default {
     components: { uniLoadMore, uniIcon },
     data() {
         return {
+          lightness: 0, // 亮度
+          
             isLogin: user.isLogined(),
             // avatar: '../../static/app-logo.png',
             avatar: '',
@@ -193,6 +197,20 @@ export default {
     },
 
     methods: {
+      
+              // 改变亮度
+              changeLightNess(e) {
+                  const { value } = e.target;
+                  let temp = 0 + value.toFixed(2);
+                  if (typeof value === 'number') {
+                      this.lightness = value;
+                      plus.screen.setBrightness(value);
+                      //
+                      //                 uni.setScreenBrightness({ value, success: function() {
+                      //                         plus.nativeUI.alert(value)
+                      //                     } });
+                  }
+              },
         openVanDialog() {
             this.showVanDialog = true;
         },

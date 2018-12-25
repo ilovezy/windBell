@@ -54,8 +54,8 @@
 
 
     <uni-drawer :visible="rightDrawerVisible" mode="right" @close="closeRightDrawer">
-    	<view class="chapter-list-item" :key="index2" v-for="(item, index2) in chapterList">
-    		{{item}}
+    	<view class="chapter-list-item" :key="item2" v-for="item2 in chapterList">
+    		{{item2}}
     	</view>
     </uni-drawer>
     
@@ -144,11 +144,16 @@ export default {
         toggleSettingPanel() {
             this.showSettingPanel = !this.showSettingPanel;
         },
+        toDecimal(x) {
+            f = Math.round(x * 100) / 100;
+            return f;
+        },
 
         // 改变亮度
         changeLightNess(e) {
             const { value } = e.target;
-            let temp = 0 + value.toFixed(2);
+            let temp = this.toDecimal(value);
+
             if (typeof value === 'number') {
                 this.lightness = value;
                 plus.screen.setBrightness(value);
@@ -202,15 +207,6 @@ export default {
         this.showDirectory = false;
         this.showFooterBar = false;
     },
-
-    onUnload() {
-        this.showDirectory = false;
-        this.showFooterBar = false;
-        this.currentPageIndex = 0;
-        this.currentChapterSectionIndex = 0;
-        _currentSource = null;
-        _lastChapter = null;
-    }
 };
 </script>
 

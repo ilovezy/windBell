@@ -23,7 +23,7 @@ import config from '@/common/config.js';
 export default {
     data() {
         return {
-            version: config.version
+            version: config.appVersion
         };
     }
 };
