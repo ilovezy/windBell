@@ -2,7 +2,7 @@
 	<view class="userCenter-page">
 		<view class="top-container">
 			<view class="top-header-container">
-        <view v-if="loading"></view>
+        <view v-if="loading" class="loading-placeholder"></view>
         
         <view v-else>
 				<view v-if="isLogin" class="is-login">
@@ -76,11 +76,11 @@
 				</view>
 			</view>
 
-			<view class="list-item" @click="getDetail">
+			<view class="list-item">
 				<view class="left-part">
 					<view class="iconfont icon-yaoqingjiangli"></view>
 					<view class="list-text">
-						邀请 test
+						邀请
 					</view>
 				</view>
 				<view class="right-part">
@@ -214,13 +214,7 @@ import ccLoading from '@/components/cc-loading.vue';
 
 		},
 
-		updated() {},
-
-		created() {},
-
 		onShow: function() {
-			const self = this;
-			console.log('fuc show')
 			this.setIsLogin()
 		},
 
