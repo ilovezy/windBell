@@ -1,32 +1,37 @@
+const stoPrefix = 'windBell-'
 const setToken = (value) => {
-	uni.setStorageSync('windBell-token', value)
+	uni.setStorageSync(stoPrefix + 'token', value)
 }
 
 const getToken = () => {
-	return uni.getStorageSync('windBell-token') || ''
+	return uni.getStorageSync(stoPrefix + 'token') || ''
 }
 
 const setReadSlider = () => {
-  uni.setStorageSync('windBell-read-slider', 'yes')
+  uni.setStorageSync(stoPrefix + 'read-slider', 'yes')
 }
 const hasReadSlider = () => {
-	return uni.getStorageSync('windBell-read-slider') == 'yes'
+	return uni.getStorageSync(stoPrefix + 'read-slider') == 'yes'
 }
 const clearReadSlider = () => {
-  uni.removeStorageSync('windBell-read-slider');
+  uni.removeStorageSync(stoPrefix + 'read-slider');
 }
 
 const setObj = (obj) => {
-	uni.setStorageSync('windBell-testObj', obj)
+	uni.setStorageSync(stoPrefix + 'testObj', obj)
 }
 
 const getObj = () => {
-	return uni.getStorageSync('windBell-testObj') || {}
+	return uni.getStorageSync(stoPrefix + 'testObj') || {}
 }
 
 // TODO 不知道是否需要拿这个token去掉一下后台
 const isLogined = () => {
-	return !!uni.getStorageSync('windBell-token')
+	return !!uni.getStorageSync(stoPrefix + 'token')
+}
+
+const doLogout = () => {
+  uni.removeStorageSync(stoPrefix + 'token')
 }
 
 module.exports = {
@@ -36,4 +41,5 @@ module.exports = {
   setReadSlider,
   hasReadSlider,
   clearReadSlider,
+  doLogout,
 }

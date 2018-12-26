@@ -16,12 +16,10 @@
             	<view class="label">
             		验证码
             	</view>
-            	<input type="number" placeholder="输入验证码" maxlength="6" placeholder-style="font-size: 14px; color: #999;" class="simple-input">
+            	<input type="number" v-model="captchaContent" placeholder="输入验证码" maxlength="6" placeholder-style="font-size: 14px; color: #999;" class="simple-input">
                 <view class="end-unit">
-                    <!-- <view class="send-btn" @click="sendSmsCode">发送验证码</view> -->
-                    
                     <view class="send-btn disabled"
-                          v-if="mobile.length !== 11">获取验证码
+                          v-if="(mobile.length !== 11) && !sendCodeStart">获取验证码
                     </view>
                     <view class="send-btn" v-else>
                       <cc-sendcode  v-model="sendCodeStart"
@@ -32,7 +30,15 @@
                 </view>
             </view>
             
-            <view class="confirm-btn">注册</view>
+            
+            <view class="simple-form-item">
+            		<view class="label">
+            			推荐码 TODO
+            		</view>
+            		<input type="number" v-model="inviteCode" placeholder="输入推荐码" placeholder-style="font-size: 14px; color: #999;" maxlength="11" focus class="simple-input">
+            </view>
+            
+            <view class="confirm-btn" @click="doConfirm">注册</view>
         </view>
         
         <cc-toast :show="toastVisible" type="middle" :msg="toastText"></cc-toast>
@@ -41,19 +47,20 @@
 
 <script>
 import ccSendcode from '@/components/cc-sendcode.vue';
-import ccToast from "@/components/cc-toast.vue"
+import ccToast from '@/components/cc-toast.vue';
 
 export default {
     components: {
-        ccSendcode,ccToast
+        ccSendcode,
+        ccToast
     },
     data: {
         mobile: 18768143328,
-        code: '', // 验证码code
-        captcha: '', // 正式验证码
+        captchaCode: '', // 验证码code
+        captchaContent: '', // 正式验证码
+        inviteCode: '',
         sendCodeStart: false,
         second: 60,
-        
         toastVisible: false,
         toastText: ''
     },
@@ -66,28 +73,36 @@ export default {
         /**
          * 获取验证码 & 验证
          */
-        sendCode() {
-            //             if (!this.mobile) {
-            //                 this.$dialog.toast({ mes: '请输入注册手机号' });
-            //             } else if (!isValidPhone(this.mobile)) {
-            //                 this.$dialog.toast({ mes: '请输入正确的手机号码' });
-            //             } else {
-            //                 this.sendSmsCode();
-            //             }
-            //             plus.nativeUI.alert('test');
-            //
-            this.sendSmsCode();
+        simpleAlert(str) {
+          // plus.nativeUI.toast(str);
+            // plus.nativeUI.alert(str);
+            this.toastText = str;
+            this.toastVisible = true;
+            setTimeout(() => {
+                this.toastText = '';
+                this.toastVisible = false;
+            }, 1500);
         },
 
-        showToast(text){
-           this.toastVisible = true
-           this.toastText = text
+        sendCode() {
+            if (!this.sendCodeStart) {
+                if (!this.mobile) {
+                    this.simpleAlert('请输入手机号');
+                } else if (!this.UTIL.isValidPhone(this.mobile)) {
+                    this.simpleAlert('请输入正确的手机号');
+                } else {
+                    this.sendSmsCode();
+                }
+            }
+        },
+
+        showToast(text) {
+            this.toastVisible = true;
+            this.toastText = text;
         },
         sendSmsCode() {
             const self = this;
-            this.showToast('验证码发送中...');
-            // self.$dialog.loading.open('验证码发送中...');
-            this.axios.POST(
+            this.AXIOS.POST(
                 '/s/msg/mbr/reg',
                 {
                     mobile: self.mobile,
@@ -96,65 +111,60 @@ export default {
                 res => {
                     uni.showToast({
                         icon: 'success',
-                        title: '验证码发送成功'
+                        title: '发送成功'
                     });
-                    // self.$dialog.toast({ mes: '验证码发送成功' });
                     self.sendCodeStart = true;
-                    self.code = res;
+                    self.captchaCode = res.result || '';
                 }
             );
         },
-        // sendSmsCode() {
-        //             this.axios.POST(
-        //                 '/s/msg/mbr/reg',
-        //                 {
-        //                     mobile: this.mobile,
-        //                     noToken: true
-        //                 },
-        //                 res => {
-        //                     uni.showModal({
-        //                         title: '提示',
-        //                         content: JSON.stringify(res),
-        //                         success: function(res) {}
-        //                     });
-        //                 }
-        //             );
-        //         },
 
         validForm() {
-            if (!isValidPhone(this.mobile)) {
-                this.$dialog.toast({ mes: '请输入正确的手机号码' });
+            if (!this.UTIL.isValidPhone(this.mobile)) {
+                this.simpleAlert('请输入正确的手机号码');
                 return false;
             }
-            if (!this.code) {
-                this.$dialog.toast({ mes: '请先获取验证码' });
+            if (!this.captchaCode) {
+                this.simpleAlert('请先获取验证码');
                 return false;
             }
-            if (!isValidSmsCode(this.captcha)) {
-                this.$dialog.toast({ mes: '验证码不正确' });
+            if (!this.UTIL.isValidSmsCode(this.captchaContent)) {
+                this.simpleAlert('验证码不正确');
                 return false;
             }
             return true;
         },
 
-        doLogin() {
+        doConfirm() {
             const self = this;
 
             if (this.validForm()) {
-                this.$dialog.loading.open('正在登录...');
-                AXIOS.post('/security/token', {
-                    mobile: this.mobile,
-                    code: this.code,
-                    captcha: this.captcha
-                }).then(res => {
-                    if (res.token) {
-                        USER.setToken(res.token);
-                        this.$dialog.toast({ mes: '登录成功' });
-                        setTimeout(() => {
-                            self.$router.replace({ path: '/' });
-                        }, 1000);
+                this.AXIOS.POST(
+                    '/s/mbr/reg',
+                    {
+                        noToken: true,
+                        mobile: this.mobile,
+                        captchaCode: this.captchaCode,
+                        captchaContent: this.captchaContent
+                        // inviteCode: this.inviteCode,
+                        // traceNo: '',
+                        // traceSource: '',
+                    },
+                    res => {
+                        if (res.result) {
+                            self.USER.setToken(res.result);
+                            uni.showToast({
+                                icon: 'none',
+                                title: '注册成功'
+                            });
+                            setTimeout(() => {
+                                uni.switchTab({
+                                	url: '/pages/userCenter/userCenter'
+                                })
+                            }, 1000);
+                        }
                     }
-                });
+                );
             }
         }
     }

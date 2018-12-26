@@ -8,7 +8,7 @@
         font-size: 26px;
         margin-bottom: 50px;
     }
-    
+
     .form-wrap {
         .simple-form-item {
             border-bottom: 1px solid #eaeaea;
@@ -18,7 +18,7 @@
             justify-content: space-between;
             padding: 5px 0;
             box-sizing: border-box;
-            
+
             .label {
                 width: 70px;
                 font-size: 16px;
@@ -28,27 +28,36 @@
             }
             .end-unit {
                 .send-btn {
+                    width: 80px;
+                    text-align: center;
                     font-size: 12px;
                     background: @theme-color;
-                    padding: 5px 10px;
+                    padding: 5px;
                     display: inline-block;
                     box-sizing: border-box;
-                    text-align: center;
                     color: #fff;
-                    
+                    &.disabled {
+                        background: lighten(@theme-color, 20%) !important;
+                        &:active {
+                            background: lighten(@theme-color, 20%) !important;
+                        }
+                    }
                     &:active {
-                    	background: darken(@theme-color, 5%);
+                        background: darken(@theme-color, 5%) !important;
                     }
                 }
             }
         }
-        
+
         .note-text {
             padding-top: 15px;
             text-align: right;
             font-size: 14px;
+            .note-link {
+                display: inline-block;
+            }
         }
-        
+
         .confirm-btn {
             padding: 12px;
             margin-top: 30px;
@@ -59,7 +68,7 @@
             font-size: 16px;
             background: @theme-color;
             color: #fff;
-            
+
             &:active {
                 background: darken(@theme-color, 5%);
             }

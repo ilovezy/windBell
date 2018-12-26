@@ -1,5 +1,5 @@
 <template>
-  <view :disabled="start" @click="click" :class="start ? '-disabled' : ''">
+  <view style="text-align: center;" :disabled="start" @click="click" :class="start ? '-disabled' : ''">
     {{tmpStr}}
   </view>
 </template>
@@ -23,7 +23,7 @@ export default {
         },
         runStr: {
             type: String,
-            default: '{%s}s后重新获取'
+            default: '{%s}s'
         },
         resetStr: {
             type: String,

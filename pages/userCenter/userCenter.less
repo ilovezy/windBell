@@ -2,20 +2,24 @@
 
 .userCenter-page {
     background: #f8f8f8;
-    
+
     .top-container {
-        .is-login, .not-login {
-           background: #fff;
-           height: 140px;
-           display: flex;
-           align-items: center;
-           padding: 0 15px; 
+      .top-header-container {
+        height: 120px;
+      }
+        .is-login,
+        .not-login {
+            background: #fff;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
         }
-        
+
         .login-btn {
             color: #666;
         }
-       
+
         .left-wrap {
             .avatar-wrap {
                 width: 70px;
@@ -41,10 +45,12 @@
         }
 
         .right-wrap {
-            padding-left: 20px;
+            padding-left: 15px;
+            display: flex;
+            align-items: center;
             .username {
                 font-size: 18px;
-                padding-bottom: 10px;
+                // padding-bottom: 10px;
                 overflow: hidden;
                 white-space: nowrap;
                 text-overflow: ellipsis;
@@ -52,10 +58,38 @@
                 max-width: 200px;
                 color: @grey-normal;
             }
+            
+            .vip-flag {
+               padding: 3px 5px;
+                font-size: 12px;
+                background: #FF9800;
+                color: #fff;
+                border-radius: 3px;
+                margin-left: 15px;
+            }
+        }
 
+        .top-money-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid #f8f8f8;
+            background: #fff;
             .money {
+                width: 50%;
+                text-align: center;
+                height: 50px;
+                line-height: 50px;
+                font-size: 16px;
                 font-size: 14px;
                 color: @grey-light;
+                box-sizing: border-box;
+                &.with-right-border {
+                    border-right: 1px solid #f8f8f8;
+                }
+                &:active {
+                    background: #f8f8f8;
+                }
 
                 .money-unit {
                     display: inline-block;

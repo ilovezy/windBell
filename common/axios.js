@@ -61,10 +61,13 @@ function request(apiPath, method, param, success, fail, complete) {
 		},
 		fail: function(res) {
 			const result = res.data;
-			uni.showToast({
-				icon: 'none',
-				title: '网络出错',
-			})
+            uni.showModal({
+            	title: '提示',
+            	content: '网络出错',
+            	showCancel: false,
+            	success: function(res) {
+            	}
+            })
 			if (typeof fail == "function") {
 				fail();
 			}
@@ -82,19 +85,23 @@ function request(apiPath, method, param, success, fail, complete) {
 
 function processRequestError(result) {
 	if (result.error == "ERROR_ACCESS_NEED_AUTH") {
-		uni.showToast({
-			icon: 'none',
-			title: '请登录'
+		uni.showModal({
+			title: '提示',
+			content: '请登录',
+            showCancel: false,
+			success: function(res) {
+				if (res.confirm) {
+					uni.navigateTo({
+						url: '/pages/login/login'
+					})
+				}
+			}
 		})
-		setTimeout(() => {
-			uni.navigateTo({
-				url: '/pages/login/login'
-			})
-		}, 1000)
 	} else {
 		uni.showModal({
 			title: '提示',
 			content: result.errorDescription || '',
+            showCancel: false,
 			success: function(res) {
 				if (res.confirm) {
 

@@ -39,7 +39,7 @@
       		<view class="iconfont icon-baitian-qing"></view>
       		<slider min="0" max="1" :value="lightness" step="0.05" backgroundColor="#f5f5f5" activeColor="#769DAC" block-size="20" @changing="changeLightNess" @change="changeLightNess" />
           <view class="iconfont icon-baitian-qing" style="font-weight: bold;"></view>
-          <view>{{lightness}}</view>
+          <!-- <view>{{lightness}}</view> -->
       	</view>
         
         <button @click="changeLight">set</button>
@@ -53,12 +53,12 @@
     </view>
 
 
-    <uni-drawer :visible="rightDrawerVisible" mode="right" @close="closeRightDrawer">
+   <uni-drawer :visible="rightDrawerVisible" mode="right" @close="closeRightDrawer">
     	<view class="chapter-list-item" :key="item2" v-for="item2 in chapterList">
     		{{item2}}
     	</view>
     </uni-drawer>
-    
+   
   </view>
 </template>
 
@@ -157,10 +157,13 @@ export default {
             if (typeof value === 'number') {
                 this.lightness = value;
                 plus.screen.setBrightness(value);
-                //
-                //                 uni.setScreenBrightness({ value, success: function() {
-                //                         plus.nativeUI.alert(value)
-                //                     } });
+
+                uni.setScreenBrightness({
+                    value,
+                    success: function() {
+                        console.log('yes fuck');
+                    }
+                });
             }
         },
         // 改变字体大小
@@ -206,7 +209,7 @@ export default {
     onHide() {
         this.showDirectory = false;
         this.showFooterBar = false;
-    },
+    }
 };
 </script>
 
