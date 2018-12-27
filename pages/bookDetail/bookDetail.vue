@@ -82,7 +82,8 @@
 		data() {
 			return {
 				loading: true,
-				id: 1,
+        
+				bookId: 1,
 				authorName: '',
 				classification: '',
 				endFlag: '',
@@ -105,7 +106,7 @@
 			getDetail() {
 				const self = this
 				this.AXIOS.POST('/s/bk/index', {
-					id: 1,
+					bookId: 1,
 					noToken: true,
 				}, (res) => {
 					let data = res.result || {}
