@@ -33,15 +33,17 @@ function request(apiPath, method, param, success, fail, complete) {
 	}
 	header.Version = CONFIG.Version
 	header['Accept-Version'] = CONFIG.AcceptVersion
-	if (data && data.noToken) {
-		header.Authorization = 'Basic ' + getPlatformAuth()
-		delete data.noToken
+
+	let token = User.getToken() ? (User.getToken() + '') : ''
+	if (token && (token.trim().length > 0)) {
+        header.Authorization = 'Bearer ' + token
 	} else {
-		let token = User.getToken() ? (User.getToken() + '') : ''
-		if (token && (token.trim().length > 0)) {
-			header.Authorization = 'Bearer ' + token
-		}
+        header.Authorization = 'Basic ' + getPlatformAuth()
 	}
+    
+    if(data){
+        delete data.noToken
+    }
 
 	uni.request({
 		url,
@@ -93,17 +95,9 @@ function processRequestError(result) {
 				}
 			}
 		})
-	} else {
-		uni.showModal({
-			title: '提示',
-			content: result.errorDescription || '',
-			showCancel: false,
-			success: function(res) {
-				if (res.confirm) {
 
-				}
-			}
-		})
+	} else {
+		Util.simpleToast(result.errorDescription || '')
 	}
 }
 

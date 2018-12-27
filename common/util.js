@@ -377,20 +377,23 @@ const isValidIdentityNum = function(str) {
 }
 
 const simpleToast = function(mes = '', noTitle = false) {
-	//#ifdef APP-PLUS
-	plus.nativeUI.toast(mes, {
-		verticalAlign: 'top'
-	})
-	//#endif
+	if (mes) {
+		//#ifdef APP-PLUS
+		plus.nativeUI.toast(mes, {
+			verticalAlign: 'top'
+		})
+		//#endif
 
-	//#ifndef APP-PLUS
-	uni.showModal({
-		title: noTitle ? '' : '提示',
-		content: mes,
-		showCancel: false,
-		success: function(res) {}
-	})
-	//#endif
+		//#ifndef APP-PLUS
+		uni.showModal({
+			title: noTitle ? '' : '提示',
+			content: mes,
+			showCancel: false,
+			success: function(res) {}
+		})
+		//#endif
+	}
+
 }
 
 module.exports = {
@@ -405,5 +408,5 @@ module.exports = {
 	isValidPassword,
 	isValidMoney,
 	isValidIdentityNum,
-  simpleToast,
+	simpleToast,
 }

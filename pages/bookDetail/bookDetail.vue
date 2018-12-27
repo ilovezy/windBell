@@ -46,7 +46,7 @@
 						<view class="iconfont icon-mulu"></view> 目录 <view class="dir-sub-text" v-if="catalog.length">共{{catalog.length}}章</view>
 					</view>
 					<view class="dir-list-wrap" v-if="catalog.length">
-						<view class="dir-list-item" v-for="(item, index) in catalog" :key="index" @click="goReadBook(id)">
+						<view class="dir-list-item" v-for="(item, index) in catalog" :key="index" @click="goReadBook(item)">
 							<view class="text">{{item.chapterTitle}} {{item.id}}</view>
 							<!-- <view class="iconfont icon-arrow-right_s" v-if="item.freeFlag"></view> -->
 							<view class="iconfont" v-if="!item.freeFlag">vip</view>
@@ -124,14 +124,16 @@
 				})
 			},
 
-			goReadBook(id) { // TODO
-				if (id) {
+			goReadBook(item) { // TODO
+        console.log(item.id)
+				if (item.id) {
 					uni.navigateTo({
-						url: '/pages/readBook/readBook'
+						url: '/pages/readBook/readBook?catalogId=' + item.id + '&bookId=' + this.bookId + '&title=' + item.chapterTitle
 					})
 				} else {
+          // TODO
 					uni.navigateTo({
-						url: '/pages/readBook/readBook'
+						url: '/pages/readBook/readBook?bookId=' + this.bookId
 					})
 				}
 
