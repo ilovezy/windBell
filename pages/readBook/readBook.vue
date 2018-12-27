@@ -12,8 +12,10 @@
 		<!-- 底部菜单 -->
 		<view :class="['chapter-footbar', { show: showFooterBar }]">
 			<view class="turnPage">
-				<view class="button last" @click="gotoTargeChapter(currentChapterIndex - 1)">上一章</view>
-				<view class="button next" @click="gotoTargeChapter(currentChapterIndex + 1)">下一章</view>
+				<view class="button last" v-if="prevChapterId" @click="goPrev">上一章</view>
+        <view v-else></view>
+				<view class="button next" v-if="nextChapterId" @click="goNext">下一章</view>
+        <view v-else></view>
 			</view>
 			<view class="setting-panel">
 				<!-- 亮度调节面板 -->
@@ -38,7 +40,8 @@
 		<uni-drawer :visible="rightDrawerVisible" mode="right" @close="closeRightDrawer">
 			<view v-if="catalog.length">
 				<view class="chapter-list-item" @click="setCurrentChapter(catalogItem)" :key="catalogItem.id" v-for="catalogItem in catalog">
-					<view class="chapter-title">{{catalogItem.chapterTitle}}非机动啊司法局噢爱书法家金佛大就否但是</view> <view class="free-flag" v-if="!catalogItem.freeFlag">vip</view>
+					<view class="chapter-title">{{catalogItem.chapterTitle}}</view> 
+          <view class="free-flag" v-if="!catalogItem.freeFlag">vip</view>
 				</view>
 			</view>
 			<view class="chapter-list-item no-data" v-else>
@@ -137,7 +140,7 @@
 		},
 
 		methods: {
-			getChapter() {
+			getChapter(title = '') {
 				const self = this
 				self.loading = true
 				this.AXIOS.POST('/s/bk/chapter', {
@@ -146,6 +149,11 @@
 					let result = res.result || {}
 					self.chapterContent = result || ''
 					self.loading = false
+          if(title){
+            uni.setNavigationBarTitle({
+            	title
+            });
+          }
 				}, () => {
 					self.loading = false
 				})
@@ -162,17 +170,29 @@
 			},
 
 			setCurrentChapter(item) {
-				console.log(item)
 				this.catalogId = item.id
-				uni.setNavigationBarTitle({
-					title: item.chapterTitle || ''
-				});
-				this.getChapter()
+				this.getChapter(item.chapterTitle)
 			},
 
-			gotoTargeChapter(target) {
-
-			},
+			goPrev(){
+        let temp = {}
+        this.catalog.map((item, index) => {
+            if(item.id == this.prevChapterId){
+              temp = item
+            }
+        })
+        
+        this.setCurrentChapter(temp)
+      },
+      goNext(){
+        let temp = {}
+        this.catalog.map((item, index) => {
+        		if(item.id == this.nextChapterId){
+        			temp = item
+        		}
+        })
+        this.setCurrentChapter(temp)
+      },
 
 			toggleSetting() {
 				this.showFooterBar = !this.showFooterBar;
