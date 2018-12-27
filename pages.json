@@ -1,214 +1,210 @@
 {
-    "pages" : [
-        //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-        {
-            "path" : "pages/initPage/initPage",
-            "style" : {}
-        },
-        {
-            "path" : "pages/register/register",
-            "style" : {
-                "navigationBarTitleText" : "注册"
-            }
-        },
-        {
-            "path" : "pages/search/searchResult/searchResult",
-            "style" : {
-                "navigationBarTitleText" : "搜索结果"
-            }
-        },
-        {
-            "path" : "pages/readBook/readBook",
-            "style" : {
-                "navigationBarTitleText" : "阅读书本TODO",
-                "app-plus" : {
-                    "titleNView" : {
-                        "buttons" : [
-                            {
-                                "text" : "\ue603",
-                                // "color" : "#666",
-                                "fontSrc" : "/static/iconfont/iconfont.ttf",
-                                "fontSize" : "22px"
-                            }
-                        ]
-                    },
-                    // "fontWeight":"bold"
-                    // "float": "left"
-                    "bounce" : "none"
-                }
-            }
-        },
-        {
-            "path" : "pages/search/searchBook/searchBook",
-            "style" : {
-                "navigationBarTitleText" : "搜索",
-                "usingComponents" : {
-                    "van-search" : "/wxcomponents/vant/search/index"
-                }
-            }
-        },
-        {
-            "path" : "pages/bookShelf/bookShelf",
-            "style" : {
-                "enablePullDownRefresh" : true,
-                "navigationBarTitleText" : "书架",
-                "app-plus" : {
-                    "titleNView" : {},
-                    // "type": "transparent"
-                    // "titleSize": "14px",
-                    // "backgroundColor": "#fff",
-                    // "titleColor": "#404040"
-                    // "homeButton": "true"
-                    // "bounce": "none",
-                    "pullToRefresh" : {
-                        "support" : true,
-                        "color" : "#607d8b",
-                        "style" : "circle",
-                        "offset" : "180px",
-                        "contentdown" : {
-                            "caption" : "下拉可刷新自定义文本"
-                        },
-                        "contentover" : {
-                            "caption" : "释放可刷新自定义文本"
-                        },
-                        "contentrefresh" : {
-                            "caption" : "正在刷新自定义文本"
-                        }
-                    }
-                }
-            }
-        },
-        {
-            "path" : "pages/login/login",
-            "style" : {
-                "navigationBarTitleText" : "登录"
-            }
-        },
-        {
-            "path" : "pages/userCenter/userCenter",
-            "style" : {
-                "navigationBarTitleText" : "我的",
-                "usingComponents" : {
-                    "van-dialog" : "/wxcomponents/vant/dialog/index"
-                }
-            }
-        },
-        {
-            "path" : "pages/openSlider/openSlider",
-            "style" : {
-                "app-plus" : {
-                    "titleNView" : "false"
-                }
-            }
-        },
-        {
-            "path" : "pages/index/index",
-            "style" : {
-                "navigationBarTitleText" : "书城",
-                "app-plus" : {
-                    "titleNView" : {
-                        "buttons" : [
-                            {
-                                "text" : "\ue642",
-                                // "color" : "#666",
-                                "fontSrc" : "/static/iconfont/iconfont.ttf",
-                                "fontSize" : "22px"
-                            }
-                        ]
-                    },
-                    // "fontWeight":"bold"
-                    // "float": "left"
-                    "bounce" : "none"
-                }
-            }
-        },
-        // "titleNView": false
-        {
-            "path" : "pages/bookDetail/bookDetail",
-            "style" : {
-                "navigationBarTitleText" : "书籍详情"
-            }
-        },
-        {
-            "path" : "pages/webView/webView",
-            "style" : {}
-        },
-        {
-            "path" : "pages/webView/baidu/baidu",
-            "style" : {
-                "navigationStyle" : "custom"
-            }
-        },
-        {
-            "path" : "pages/userCenter/help/help",
-            "style" : {
-                "navigationBarTitleText" : "帮助中心"
-            }
-        },
-        {
-            "path" : "pages/userCenter/userInfo/userInfo",
-            "style" : {
-                "navigationBarTitleText" : "我的信息"
-            }
-        },
-        {
-            "path" : "pages/userCenter/aboutUs/aboutUs",
-            "style" : {
-                "navigationBarTitleText" : "关于我们"
-            }
-        },
-        {
-            "path" : "pages/userCenter/suggest/suggest",
-            "style" : {
-                "navigationBarTitleText" : "意见反馈"
-            }
-        },
-        {
-            "path" : "components/cc-toast",
-            "style" : {}
-        }
-    ],
-    // "titleNView": false
-    "globalStyle" : {
-        "navigationBarTextStyle" : "white",
-        "navigationBarTitleText" : "风铃阅读",
-        "navigationBarBackgroundColor" : "#607d8b",
-        "backgroundColor" : "#607d8b"
-    },
-    "tabBar" : {
-        "color" : "#bdbdbd",
-        "selectedColor" : "#607d8b",
-        "borderStyle" : "black",
-        "backgroundColor" : "#fff",
-        "list" : [
-            {
-                "pagePath" : "pages/bookShelf/bookShelf",
-                "iconPath" : "static/tabIcon-dark/bookShelf.png",
-                "selectedIconPath" : "static/tabIcon-dark/bookShelf-active.png",
-                "text" : "书架"
-            },
-            {
-                "pagePath" : "pages/index/index",
-                "iconPath" : "static/tabIcon-dark/bookCity.png",
-                "selectedIconPath" : "static/tabIcon-dark/bookCity-active.png",
-                "text" : "书城"
-            },
-            {
-                "pagePath" : "pages/userCenter/userCenter",
-                "iconPath" : "static/tabIcon-dark/userCenter.png",
-                "selectedIconPath" : "static/tabIcon-dark/userCenter-active.png",
-                "text" : "我的"
-            }
-        ]
-    },
-    "condition" : { //模式配置，仅开发期间生效
-        "current": 0, //当前激活的模式(list 的索引项)
-        "list": [
-            {
-                "name": "", //模式名称
-                "path": "", //启动页面，必选
-                "query": "" //启动参数，在页面的onLoad函数里面得到
-            }
-        ]
-    }
+	"pages": [
+		//pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/initPage/initPage",
+			"style": {}
+		},
+		{
+			"path": "pages/register/register",
+			"style": {
+				"navigationBarTitleText": "注册"
+			}
+		},
+		{
+			"path": "pages/search/searchResult/searchResult",
+			"style": {
+				"navigationBarTitleText": "搜索结果"
+			}
+		},
+		{
+			"path": "pages/readBook/readBook",
+			"style": {
+				"navigationBarTitleText": "阅读书本TODO",
+				"app-plus": {
+					"titleNView": {
+						"buttons": [{
+							"text": "\ue603",
+							// "color" : "#666",
+							"fontSrc": "/static/iconfont/iconfont.ttf",
+							"fontSize": "22px"
+						}]
+					},
+					// "fontWeight":"bold"
+					// "float": "left"
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/search/searchBook/searchBook",
+			"style": {
+				"navigationBarTitleText": "搜索",
+				"usingComponents": {
+					"van-search": "/wxcomponents/vant/search/index"
+				}
+			}
+		},
+		{
+			"path": "pages/bookShelf/bookShelf",
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationBarTitleText": "书架",
+				"app-plus": {
+					"titleNView": {},
+					// "type": "transparent"
+					// "titleSize": "14px",
+					// "backgroundColor": "#fff",
+					// "titleColor": "#404040"
+					// "homeButton": "true"
+					// "bounce": "none",
+					"pullToRefresh": {
+						"support": true,
+						"color": "#607d8b",
+						"style": "circle",
+						"offset": "180px",
+						"contentdown": {
+							"caption": "下拉可刷新自定义文本"
+						},
+						"contentover": {
+							"caption": "释放可刷新自定义文本"
+						},
+						"contentrefresh": {
+							"caption": "正在刷新自定义文本"
+						}
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录"
+			}
+		},
+		{
+			"path": "pages/userCenter/userCenter",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"usingComponents": {
+					"van-dialog": "/wxcomponents/vant/dialog/index"
+				}
+			}
+		},
+		{
+			"path": "pages/openSlider/openSlider",
+			"style": {
+				"app-plus": {
+					"titleNView": "false"
+				}
+			}
+		},
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "书城",
+				"app-plus": {
+					"titleNView": {
+						"buttons": [{
+							"text": "\ue642",
+							// "color" : "#666",
+							"fontSrc": "/static/iconfont/iconfont.ttf",
+							"fontSize": "22px"
+						}]
+					},
+					// "fontWeight":"bold"
+					// "float": "left"
+					"bounce": "none"
+				}
+			}
+		},
+		// "titleNView": false
+		{
+			"path": "pages/bookDetail/bookDetail",
+			"style": {
+				"navigationBarTitleText": "书籍详情"
+			}
+		},
+		{
+			"path": "pages/webView/webView",
+			"style": {}
+		},
+		{
+			"path": "pages/webView/baidu/baidu",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/userCenter/help/help",
+			"style": {
+				"navigationBarTitleText": "帮助中心"
+			}
+		},
+		{
+			"path": "pages/userCenter/userInfo/userInfo",
+			"style": {
+				"navigationBarTitleText": "我的信息"
+			}
+		},
+		{
+			"path": "pages/userCenter/aboutUs/aboutUs",
+			"style": {
+				"navigationBarTitleText": "关于我们",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/userCenter/suggest/suggest",
+			"style": {
+				"navigationBarTitleText": "意见反馈"
+			}
+		},
+		{
+			"path": "components/cc-toast",
+			"style": {}
+		}
+	],
+	// "titleNView": false
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "风铃阅读",
+		"navigationBarBackgroundColor": "#607d8b",
+		"backgroundColor": "#607d8b"
+	},
+	"tabBar": {
+		"color": "#bdbdbd",
+		"selectedColor": "#607d8b",
+		"borderStyle": "black",
+		"backgroundColor": "#fff",
+		"list": [{
+				"pagePath": "pages/bookShelf/bookShelf",
+				"iconPath": "static/tabIcon-dark/bookShelf.png",
+				"selectedIconPath": "static/tabIcon-dark/bookShelf-active.png",
+				"text": "书架"
+			},
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/tabIcon-dark/bookCity.png",
+				"selectedIconPath": "static/tabIcon-dark/bookCity-active.png",
+				"text": "书城"
+			},
+			{
+				"pagePath": "pages/userCenter/userCenter",
+				"iconPath": "static/tabIcon-dark/userCenter.png",
+				"selectedIconPath": "static/tabIcon-dark/userCenter-active.png",
+				"text": "我的"
+			}
+		]
+	},
+	"condition": { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [{
+			"name": "", //模式名称
+			"path": "", //启动页面，必选
+			"query": "" //启动参数，在页面的onLoad函数里面得到
+		}]
+	}
 }

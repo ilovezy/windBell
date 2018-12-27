@@ -154,7 +154,7 @@ export default {
                         if (res.result) {
                             self.USER.setToken(res.result);
                             uni.showToast({
-                                icon: 'none',
+                                icon: 'success',
                                 title: '注册成功'
                             });
                             setTimeout(() => {

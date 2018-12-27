@@ -1,97 +1,144 @@
 <template>
 	<view class="book-detail-page">
-        <view class="main-detail-wrap">
-            <view class="book-basic">
-                <image class="mask-bg-img" src="../../static/lolis/c.png" mode="widthFix"></image>
-                <view class="book-main-wrap">
-                    <image class="avatar" src="../../static/lolis/c.png" mode="scaleToFill"></image>
-                    <view class="detail">
-                        <view class="detail-title">
-                            晒帅，你媳妇吼了
-                        </view>
-                        <view class="detail-writer">
-                            承蒙
-                        </view>
-                        
-                        <view class="detail-tags">
-                            现代言情 14万字 连载
-                        </view>
-                        
-                        <view class="charge-tag">
-                            免费
-                        </view>
-                    </view>
-                </view>
-            </view>
-            
-            <view class="notice-bar-wrap">
-                <view class="notice-bar">
-                    <view class="percent">78%</view>和您相同喜好的书友，正在看这本书
-                </view>
-            </view>
-            
-            
-            <view class="desc">和您相同喜好的书友，正在看这本书和您相同喜好的书友，正在看这本书和您相同喜好的书友，正在看这本书和您相同喜好的书友，正在看这本书</view>
-            <view class="place-bg"></view>
+		<view class="loading-text" v-if="loading">
+			<cc-loading></cc-loading>
+		</view>
+		<view class="page-fade" v-else>
+			<view class="main-detail-wrap">
+				<view class="book-basic">
+					<image class="mask-bg-img" :src="imgCover" mode="widthFix"></image>
+					<view class="book-main-wrap">
+						<image class="avatar" :src="imgCover" mode="scaleToFill"></image>
+						<view class="detail">
+							<view class="detail-title">
+								{{title}}
+							</view>
+							<view class="detail-writer">
+								<view v-if="authorName">
+									<view class="iconfont icon-wode"></view> {{authorName}}
+								</view>
+							</view>
 
-            <view class="directory-wrap">
-                <view class="dir-title">
-                   <view class="iconfont icon-mulu"></view> 目录
-                </view>
-                <view class="dir-list-wrap">
-                    <view class="dir-list-item">
-                        <view class="text">第一章</view>
-                        <view class="iconfont icon-arrow-right_s"></view>
-                    </view>
-                    <view class="dir-list-item">
-                    	<view class="text">第一章</view>
-                    	<view class="iconfont icon-arrow-right_s"></view>
-                    </view><view class="dir-list-item">
-                        <view class="text">第一章</view>
-                        <view class="iconfont icon-arrow-right_s"></view>
-                    </view><view class="dir-list-item">
-                        <view class="text">第一章</view>
-                        <view class="iconfont icon-arrow-right_s"></view>
-                    </view><view class="dir-list-item">
-                        <view class="text">第一章</view>
-                        <view class="iconfont icon-arrow-right_s"></view>
-                    </view><view class="dir-list-item">
-                        <view class="text">第一章</view>
-                        <view class="iconfont icon-arrow-right_s"></view>
-                    </view>
-                </view>
-            </view>
-            <view class="place-bg"></view>
+							<view class="detail-tags">
+								{{classification}}
+								<view class="end-flag" v-if="endFlag !==''">
+									{{ endFlag ? '已完结' : '连载中'}}
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
 
-        </view>
-        <view class="button-btns-wrap">
-        	<view class="left-btn">
-                加书架
-            </view>
-            
-            <view class="read-btn" @click="goReadBook">
-            	开始阅读
-            </view>
-        </view>
+				<view class="notice-bar-wrap">
+					<view class="notice-bar">
+						<view class="percent">78%</view>和您相同喜好的书友，正在看这本书
+					</view>
+				</view>
+
+
+				<view class="desc">
+					{{shortDesc}}
+				</view>
+				<view class="place-bg"></view>
+
+				<view class="directory-wrap">
+					<view class="dir-title">
+						<view class="iconfont icon-mulu"></view> 目录 <view class="dir-sub-text" v-if="catalog.length">共{{catalog.length}}章</view>
+					</view>
+					<view class="dir-list-wrap" v-if="catalog.length">
+						<view class="dir-list-item" v-for="(item, index) in catalog" :key="index" @click="goReadBook(id)">
+							<view class="text">{{item.chapterTitle}} {{item.id}}</view>
+							<!-- <view class="iconfont icon-arrow-right_s" v-if="item.freeFlag"></view> -->
+							<view class="iconfont" v-if="!item.freeFlag">vip</view>
+						</view>
+					</view>
+
+					<view class="dir-list-wrap no-data" v-else>
+						暂无章节信息
+					</view>
+				</view>
+				<view class="place-bg"></view>
+
+			</view>
+			<view class="button-btns-wrap">
+				<view class="left-btn">
+					加书架
+				</view>
+
+				<view class="read-btn" @click="goReadBook">
+					开始阅读
+				</view>
+			</view>
+		</view>
 	</view>
 </template>
 
 <script>
-export default {
-    data() {
-        return {};
-    },
-    
-    methods:{
-        goReadBook(){
-            uni.navigateTo({
-            	url: '/pages/readBook/readBook'
-            })
-        }
-    }
-};
+	import ccLoading from '@/components/cc-loading.vue'
+	export default {
+		components: {
+			ccLoading
+		},
+		data() {
+			return {
+				loading: true,
+				id: 1,
+				authorName: '',
+				classification: '',
+				endFlag: '',
+				imgCover: '',
+				shortDesc: '',
+				title: '',
+				catalog: []
+			};
+		},
+
+		onLoad() {
+			this.getDetail()
+		},
+
+		onShow() {
+
+		},
+
+		methods: {
+			getDetail() {
+				const self = this
+				this.AXIOS.POST('/s/bk/index', {
+					id: 1,
+					noToken: true,
+				}, (res) => {
+					let data = res.result || {}
+					self.authorName = data.authorName || ''
+					self.classification = data.classification || ''
+					self.endFlag = data.endFlag || ''
+					self.imgCover = data.imgCover || ''
+					self.shortDesc = data.shortDesc || ''
+					self.title = data.title || ''
+					self.catalog = data.catalog || []
+
+					self.loading = false
+				}, () => {
+					self.loading = false
+				})
+			},
+
+			goReadBook(id) { // TODO
+				if (id) {
+					uni.navigateTo({
+						url: '/pages/readBook/readBook'
+					})
+				} else {
+					uni.navigateTo({
+						url: '/pages/readBook/readBook'
+					})
+				}
+
+			}
+		}
+	};
 </script>
 
 <style lang="less">
-@import 'bookDetail.less';
+	@import 'bookDetail.less';
 </style>

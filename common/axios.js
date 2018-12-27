@@ -1,5 +1,6 @@
 const CONFIG = require('./config.js');
 const User = require('./user.js');
+const Util = require('./util.js')
 const LoadingDuration = 300
 
 function POST(apiPath, param, success, fail, complete) {
@@ -61,13 +62,8 @@ function request(apiPath, method, param, success, fail, complete) {
 		},
 		fail: function(res) {
 			const result = res.data;
-            uni.showModal({
-            	title: '提示',
-            	content: '网络出错',
-            	showCancel: false,
-            	success: function(res) {
-            	}
-            })
+			Util.simpleToast('网络错误')
+
 			if (typeof fail == "function") {
 				fail();
 			}
@@ -88,7 +84,7 @@ function processRequestError(result) {
 		uni.showModal({
 			title: '提示',
 			content: '请登录',
-            showCancel: false,
+			showCancel: false,
 			success: function(res) {
 				if (res.confirm) {
 					uni.navigateTo({
@@ -101,7 +97,7 @@ function processRequestError(result) {
 		uni.showModal({
 			title: '提示',
 			content: result.errorDescription || '',
-            showCancel: false,
+			showCancel: false,
 			success: function(res) {
 				if (res.confirm) {
 

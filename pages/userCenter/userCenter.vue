@@ -126,7 +126,7 @@
 		</view>
 
 		<view class="list-item-wrap">
-			<view class="list-item">
+			<label class="list-item">
 				<view class="left-part">
 					<view class="iconfont icon-tianqitubiao_qingtianzhou"></view>
 					<view class="list-text">
@@ -138,8 +138,8 @@
 						<switch @change="toogleBright" color="#607D8B" style="transform: translateX(10%) scale(0.6);" />
 					</view>
 				</view>
-			</view>
-			<view class="list-item">
+			</label>
+			<label class="list-item">
 				<view class="left-part">
 					<view class="iconfont icon-tianqitubiao_qingtianzhou"></view>
 					<view class="list-text">
@@ -151,7 +151,7 @@
 						<switch @change="toogleBright2" style="transform: translateX(10%) scale(0.6);" />
 					</view>
 				</view>
-			</view>
+			</label>
 			<view class="list-item" @click="makePhoneCall">
 				<view class="left-part">
 					<view class="iconfont icon-tianqitubiao_qingtianzhou"></view>
@@ -244,7 +244,7 @@ import ccLoading from '@/components/cc-loading.vue';
 				const self = this;
 				this.AXIOS.POST('/a/mbr/center', {}, res => {
 					const data = res.result || {};
-					self.nickName = 'fddaf' || data.nickName || '';
+					self.nickName = data.nickName || '';
 					self.vipFlag = data.vipFlag || false;
 					self.availableCapital = data.availableCapital || 0;
 					self.availableCoin = data.availableCoin || 0;
