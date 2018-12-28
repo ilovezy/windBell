@@ -1,6 +1,37 @@
 {
 	"pages": [
 		//pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+        {
+        	"path": "pages/bookShelf/bookShelf",
+        	"style": {
+        		"enablePullDownRefresh": true,
+        		"navigationBarTitleText": "书架",
+        		"app-plus": {
+        			"titleNView": {},
+        			// "type": "transparent"
+        			// "titleSize": "14px",
+        			// "backgroundColor": "#fff",
+        			// "titleColor": "#404040"
+        			// "homeButton": "true"
+        			// "bounce": "none",
+        			"pullToRefresh": {
+        				"support": true,
+        				"color": "#607d8b",
+        				"style": "circle",
+        				"offset": "180px",
+        				"contentdown": {
+        					"caption": "下拉可刷新自定义文本"
+        				},
+        				"contentover": {
+        					"caption": "释放可刷新自定义文本"
+        				},
+        				"contentrefresh": {
+        					"caption": "正在刷新自定义文本"
+        				}
+        			}
+        		}
+        	}
+        },
 		{
 			"path": "pages/initPage/initPage",
 			"style": {}
@@ -45,37 +76,7 @@
 				}
 			}
 		},
-		{
-			"path": "pages/bookShelf/bookShelf",
-			"style": {
-				"enablePullDownRefresh": true,
-				"navigationBarTitleText": "书架",
-				"app-plus": {
-					"titleNView": {},
-					// "type": "transparent"
-					// "titleSize": "14px",
-					// "backgroundColor": "#fff",
-					// "titleColor": "#404040"
-					// "homeButton": "true"
-					// "bounce": "none",
-					"pullToRefresh": {
-						"support": true,
-						"color": "#607d8b",
-						"style": "circle",
-						"offset": "180px",
-						"contentdown": {
-							"caption": "下拉可刷新自定义文本"
-						},
-						"contentover": {
-							"caption": "释放可刷新自定义文本"
-						},
-						"contentrefresh": {
-							"caption": "正在刷新自定义文本"
-						}
-					}
-				}
-			}
-		},
+		
 		{
 			"path": "pages/login/login",
 			"style": {

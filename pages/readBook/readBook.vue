@@ -4,9 +4,8 @@
             <cc-loading></cc-loading>
         </view>
         <view class="chapter-main-container " :style="{fontSize: chapterFontSize + 'px'}" @click="toggleSetting">
-            <rich-text :nodes="chapterContent" />
+            <rich-text style="text-indent: 2em;" :nodes="chapterContent" />
         </view>
-
 
         <uni-drawer :visible="rightDrawerVisible" mode="right" @close="closeRightDrawer">
             <view v-if="catalog.length">
@@ -19,6 +18,7 @@
             <view class="chapter-list-item no-data" v-else>
                 暂无章节信息
             </view>
+
         </uni-drawer>
 
         <view class="turn-page-wrap">
@@ -53,7 +53,7 @@
 
                     <view class="setting-middle-part">
 
-                        <slider class="setting-slider" min="0" max="1" :value="lightness" step="0.05" backgroundColor="#f5f5f5"
+                        <slider class="setting-slider" min="0" max="1" :value="lightness" step="0.1" backgroundColor="#f5f5f5"
                             activeColor="#769DAC" block-size="20" @changing="changeLightNess" @change="changeLightNess" />
                     </view>
                     <view class="setting-right-part">
@@ -71,7 +71,6 @@
                             block-size="20" @changing="changeFontSize" @change="changeFontSize" />
                     </view>
                     <view class="setting-right-part">
-                        <!-- <view style="font-size: 16px;">{{chapterFontSize}}</view> -->
                         <view class="iconfont icon-font" style="font-weight: bold;"></view>
                     </view>
                 </view>
@@ -201,7 +200,7 @@
                 this.selectedTheme = this.USER.getTheme() || 'default'
                 this.lightness = this.USER.getLightness()
             },
-            
+
             clickNavBarItem: _.debounce(function(item) {
                 this.getChapter(item)
             }, 300, true),
@@ -280,11 +279,6 @@
 
             toggleSetting() {
                 this.showFooterBar = !this.showFooterBar;
-            },
-
-            toDecimal(x) {
-                f = Math.round(x * 100) / 100;
-                return f;
             },
 
             // 改变亮度

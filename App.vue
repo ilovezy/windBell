@@ -21,4 +21,17 @@ export default {
 @import './style/global.less';
 @import './style/variable.less';
 @import './style/iconfont.css';
+
+.cc-fade {
+    animation: ccFade 0.5s;
+}
+
+@keyframes ccFade{
+    0% {
+        opacity: 0.2;
+    }
+    100%{
+        opacity: 1;
+    }
+}
 </style>

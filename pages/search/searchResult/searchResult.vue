@@ -1,6 +1,6 @@
 <template>
 	<view class="search-result-page">
-		<view v-for="(item, index) in list" :key="index" class="search-list-item" @click="goBookDetail">
+		<view v-for="(item, index) in list" :key="index" class="search-list-item cc-fade" @click="goBookDetail">
             <image class="cover" :src="item.cover" mode="scaleToFill"></image>
 
             <view class="detail-container">
@@ -125,9 +125,23 @@ export default {
             desc: '喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法',
             tags: ['完结', '27万字', '悬疑类', '现代']
         });
+         list.push({
+            cover: '../../../static/lolis/dd.jpg',
+            title: '心理罪城之光',
+            writer: '小蜜蜂',
+            desc: '喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法',
+            tags: ['完结', '27万字', '悬疑类', '现代']
+        });
+         list.push({
+            cover: '../../../static/lolis/dd.jpg',
+            title: '心理罪城之光',
+            writer: '小蜜蜂',
+            desc: '喝酒诶哦发货到你丰富的睡觉奥if发的撒娇发动机搜啊方法',
+            tags: ['完结', '27万字', '悬疑类', '现代']
+        });
         setTimeout(() => {
             console.log(length)
-            if (length > 10) {
+            if (length > 100) {
                 this.loadingType = 2;
                 return;
             }

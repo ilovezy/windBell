@@ -21,11 +21,11 @@
         </view>
         
         <view>
-            <view v-if="showLoading">
+            <view class="loading-wrap" v-if="showLoading">
                 <cc-loading></cc-loading>
             </view>
             <view v-else class="list-wrap">
-                <view class="list-item " @click="goBookDetail(item)" v-for="(item,index) in itemList" :key="index">
+                <view class="list-item cc-fade" @click="goBookDetail(item)" v-for="(item,index) in itemList" :key="index">
                     <image :src="item.cover" class="cover" mode="scaleToFill"></image>
                     <view class="basic-info">
                     <view class="title">

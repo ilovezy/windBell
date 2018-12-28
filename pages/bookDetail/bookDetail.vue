@@ -3,7 +3,7 @@
 		<view class="loading-text" v-if="loading">
 			<cc-loading></cc-loading>
 		</view>
-		<view class="page-fade" v-else>
+		<view class="page-fade cc-fade" v-else>
 			<view class="main-detail-wrap">
 				<view class="book-basic">
 					<image class="mask-bg-img" :src="imgCover" mode="widthFix"></image>
