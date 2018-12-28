@@ -63,7 +63,7 @@
 		right: 0;
 		bottom: 0;
 		overflow: hidden;
-		visibility: hidden;
+		/* visibility: hidden; */
 		z-index: 998;
 		height:100%;
 	}
