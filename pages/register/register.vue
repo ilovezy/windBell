@@ -48,7 +48,7 @@
 <script>
 import ccSendcode from '@/components/cc-sendcode.vue';
 import ccToast from '@/components/cc-toast.vue';
-
+import _ from '@/common/underscore.js'
 export default {
     components: {
         ccSendcode,
@@ -84,7 +84,7 @@ export default {
             }, 1500);
         },
 
-        sendCode() {
+        sendCode: _.debounce(function() {
             if (!this.sendCodeStart) {
                 if (!this.mobile) {
                     this.simpleAlert('请输入手机号');
@@ -94,7 +94,7 @@ export default {
                     this.sendSmsCode();
                 }
             }
-        },
+        }, 1000, true),
 
         showToast(text) {
             this.toastVisible = true;

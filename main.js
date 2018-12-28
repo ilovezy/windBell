@@ -6,12 +6,14 @@ import ccLoading from './components/cc-loading.vue'
 import AXIOS from '@/common/axios'
 import UTIL from '@/common/util'
 import USER from '@/common/user'
+import _ from '@/common/underscore'
 
 Vue.component('cc-loading', ccLoading)
 Vue.config.productionTip = true
 Vue.prototype.AXIOS = AXIOS
 Vue.prototype.UTIL = UTIL
 Vue.prototype.USER = USER
+Vue.prototype._ = _
 
 App.mpType = 'app'
 

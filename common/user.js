@@ -34,6 +34,21 @@ const doLogout = () => {
   uni.removeStorageSync(stoPrefix + 'token')
 }
 
+// 设置阅读的基本配置
+const setFontSize = (str) => {
+    uni.setStorageSync(stoPrefix + 'read-font-size', str)
+}
+
+const getFontSize = () => {
+	return uni.getStorageSync(stoPrefix + 'read-font-size') || '14'
+}
+const setTheme = (str) => {
+    uni.setStorageSync(stoPrefix + 'read-theme', str)
+}
+
+const getTheme = () => {
+	return uni.getStorageSync(stoPrefix + 'read-theme') || '14'
+}
 module.exports = {
 	getToken,
 	setToken,
@@ -41,5 +56,5 @@ module.exports = {
   setReadSlider,
   hasReadSlider,
   clearReadSlider,
-  doLogout,
+  doLogout,setFontSize,getFontSize,setTheme,getTheme
 }
