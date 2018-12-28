@@ -101,7 +101,7 @@
 
                 light: 0.1,
                 rightDrawerVisible: false,
-                showFooterBar: true, // 是否展示底部菜单
+                showFooterBar: false, // 是否展示底部菜单
 
                 isNightMode: false, // 是否是夜间模式
                 lightness: 0, // 亮度
