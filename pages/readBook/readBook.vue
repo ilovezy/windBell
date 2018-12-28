@@ -177,10 +177,9 @@
         onLoad(option) {
             this.bookId = option.bookId || '1'
             this.catalogId = option.catalogId || '1'
-            this.chapterTitle = option.title || 'test'
+            this.chapterTitle = option.title || ''
 
-            this.chapterFontSize = this.USER.getFontSize() || 14
-            this.selectedTheme = this.USER.getTheme() || 'default'
+            this.setSettings()
 
             uni.setNavigationBarTitle({
                 title: option.title || ''
@@ -197,7 +196,12 @@
         },
 
         methods: {
-
+            setSettings() {
+                this.chapterFontSize = this.USER.getFontSize() || 14
+                this.selectedTheme = this.USER.getTheme() || 'default'
+                this.lightness = this.USER.getLightness()
+            },
+            
             clickNavBarItem: _.debounce(function(item) {
                 this.getChapter(item)
             }, 300, true),
@@ -278,11 +282,6 @@
                 this.showFooterBar = !this.showFooterBar;
             },
 
-            // 切换夜间/白天模式
-            toggleNightOrDay() {
-                this.isNightMode = !this.isNightMode;
-            },
-
             toDecimal(x) {
                 f = Math.round(x * 100) / 100;
                 return f;
@@ -296,14 +295,10 @@
 
                 if (typeof value === 'number') {
                     this.lightness = value;
-                    plus.screen.setBrightness(value);
-
                     uni.setScreenBrightness({
                         value,
-                        success: function() {
-                            console.log('yes fuck');
-                        }
                     });
+                    this.USER.setLightness(value)
                 }
             },
 
@@ -317,7 +312,7 @@
                     this.USER.setFontSize(value);
                 }
             },
-            
+
             changeTheme(item) {
                 this.selectedTheme = item.className
                 this.USER.setTheme(item.className);

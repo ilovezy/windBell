@@ -47,7 +47,19 @@ const setTheme = (str) => {
 }
 
 const getTheme = () => {
-	return uni.getStorageSync(stoPrefix + 'read-theme') || '14'
+	return uni.getStorageSync(stoPrefix + 'read-theme') || 'default'
+}
+const clearTheme = () => {   
+    uni.removeStorageSync(stoPrefix + 'read-font-size')
+    uni.removeStorageSync(stoPrefix + 'read-theme')
+}
+
+const setLightness = (str) => {
+    uni.setStorageSync(stoPrefix + 'read-lightness', str)
+}
+
+const getLightness = () => {
+	return uni.getStorageSync(stoPrefix + 'read-lightness') || ''
 }
 module.exports = {
 	getToken,
@@ -56,5 +68,9 @@ module.exports = {
   setReadSlider,
   hasReadSlider,
   clearReadSlider,
-  doLogout,setFontSize,getFontSize,setTheme,getTheme
+  doLogout,
+  
+  
+  
+  setFontSize,getFontSize,setTheme,getTheme,clearTheme,setLightness,getLightness
 }

@@ -15,6 +15,8 @@
 			laudantium reiciendis. Natus illum est assumenda? Perspiciatis corporis doloremque itaque corrupti distinctio
 			sapiente ab?
 		</view>
+        
+        <button type="primary" @click="clearTheme">clearTheme</button>
 	</view>
 </template>
 
@@ -54,6 +56,10 @@
 					url: '/pages/bookDetail/bookDetail'
 				});
 			},
+            
+            clearTheme(){
+                this.USER.clearTheme()
+            }
 		}
 	};
 </script>

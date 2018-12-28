@@ -46,9 +46,8 @@
 						<view class="iconfont icon-mulu"></view> 目录 <view class="dir-sub-text" v-if="catalog.length">共{{catalog.length}}章</view>
 					</view>
 					<view class="dir-list-wrap" v-if="catalog.length">
-						<view class="dir-list-item" v-for="(item, index) in catalog" :key="index" @click="goReadBook(item)">
+						<view class="dir-list-item" v-for="item in catalog" :key="item.id" @click="goReadBook(item)">
 							<view class="text">{{item.chapterTitle}} {{item.id}}</view>
-							<!-- <view class="iconfont icon-arrow-right_s" v-if="item.freeFlag"></view> -->
 							<view class="iconfont" v-if="!item.freeFlag">vip</view>
 						</view>
 					</view>
@@ -96,10 +95,6 @@
 
 		onLoad() {
 			this.getDetail()
-		},
-
-		onShow() {
-
 		},
 
 		methods: {
