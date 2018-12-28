@@ -1,7 +1,7 @@
 <template>
 	<view class="login-page">
       <view class="title">
-          登陆
+          登录
       </view>
       
       <view class="form-wrap">
@@ -30,7 +30,7 @@
               </view>
           </view>
           
-          <view class="confirm-btn" @click="doConfirm">登陆</view>
+          <view class="confirm-btn" @click="doConfirm">登录</view>
           
           <view class="note-text">
               <navigator class="note-link" url="/pages/register/register">

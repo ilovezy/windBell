@@ -60,7 +60,7 @@
 
 			</view>
 			<view class="button-btns-wrap">
-				<view class="left-btn">
+				<view class="left-btn" @click="addToBookShelf">
 					加书架
 				</view>
 
@@ -102,7 +102,6 @@
 				const self = this
 				this.AXIOS.POST('/s/bk/index', {
 					bookId: 1,
-					noToken: true,
 				}, (res) => {
 					let data = res.result || {}
 					self.authorName = data.authorName || ''
@@ -132,7 +131,16 @@
 					})
 				}
 
-			}
+			},
+            
+            addToBookShelf(){
+                const self = this
+                this.AXIOS.POST('/a/mbr/bk/collect', {
+                	bookId: 1
+                }, (res) => {
+                    this.UTIL.simpleToast('添加成功')
+                })
+            }
 		}
 	};
 </script>

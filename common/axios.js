@@ -83,6 +83,7 @@ function request(apiPath, method, param, success, fail, complete) {
 
 function processRequestError(result) {
 	if (result.error == "ERROR_ACCESS_NEED_AUTH") {
+        User.doLogout()
 		uni.showModal({
 			title: '提示',
 			content: '请登录',
