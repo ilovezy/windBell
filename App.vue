@@ -22,6 +22,9 @@ export default {
 @import './style/variable.less';
 @import './style/iconfont.css';
 
+.iconfont {
+    display: inline-block;
+}
 .cc-fade {
     animation: ccFade 0.5s;
 }
